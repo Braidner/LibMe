@@ -13,6 +13,7 @@ subprojects {
         }
     }
 }
-task stage {
-    dependsOn bootRun
+
+task stage(dependsOn: ':Web:bootRun') << {
+    println 'build web application'
 }
