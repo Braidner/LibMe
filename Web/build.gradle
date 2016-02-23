@@ -25,6 +25,12 @@ dependencies {
     compile project(":Utils")
 }
 
-jar {
-    manifest.attributes("Main-Class": mainClassName);
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'LibMe',
+                'Main-Class': mainClassName
+    }
+    baseName = project.name + '-full'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
