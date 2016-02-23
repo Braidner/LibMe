@@ -1,0 +1,23 @@
+{
+  "name": "LibMe",
+  "description": "File library",
+  "main": "AppModule.js",
+  "authors": [
+    "Braidner <goodly92@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "lib"
+  ],
+  "moduleType": [],
+  "homepage": "braidner.org",
+  "private": true,
+  "dependencies": {
+    "angular": "1.5.0-rc.1",
+    "bootstrap": "~3.1.1",
+    "angular-animate": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+    "angular-bootstrap": "latest"
+  }
+}

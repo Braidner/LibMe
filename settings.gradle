@@ -1,0 +1,6 @@
+rootProject.name = 'LibMe'
+
+include 'core'
+include 'Utils'
+include 'Web'
+

@@ -1,0 +1,15 @@
+subprojects {
+    apply plugin: "java"
+
+    tasks.withType(JavaCompile) {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
+        }
+    }
+}

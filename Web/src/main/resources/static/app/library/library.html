@@ -1,0 +1,14 @@
+<div class=" library">
+    <div class="row">
+        <div class="content-item col-md-2 col-sm-6" ng-repeat="film in library">
+            <div class="poster" background="{{film.poster}}">
+            </div>
+            <div class="content-name">
+                {{film.name | limitTo:22}}<span ng-if="film.name.length > 22">...</span>
+            </div>
+            <div class="content-date">
+                10.01.2016
+            </div>
+        </div>
+    </div>
+</div>

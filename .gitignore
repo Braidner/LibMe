@@ -1,0 +1,10 @@
+.idea/
+*.iml
+rebel.xml
+build
+.gradle
+.idea
+out
+*.ipr
+*.iws
+.DS_Store
