@@ -13,3 +13,6 @@ subprojects {
         }
     }
 }
+task stage {
+    dependsOn bootRun
+}
