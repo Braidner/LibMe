@@ -1,1 +1,1 @@
-web: sh Web/build/install/bin/Web
+web: sh /Web/build/install/bin/Web
