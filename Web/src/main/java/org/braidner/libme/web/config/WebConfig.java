@@ -5,6 +5,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.ErrorPage;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created with IntelliJ IDEA.
@@ -26,12 +33,12 @@ public class WebConfig implements CommandLineRunner {
         logger.info("Web module loaded");
     }
 
-//    @Bean
-//    public EmbeddedServletContainerFactory servletContainer() {
-//        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-//        factory.setPort(8080);
-//        factory.setSessionTimeout(10, TimeUnit.MINUTES);
-//        factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/notfound.html")); //TODO add 404 page
-//        return factory;
-//    }
+    @Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
+        factory.setPort(80);
+        factory.setSessionTimeout(10, TimeUnit.MINUTES);
+        factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/notfound.html")); //TODO add 404 page
+        return factory;
+    }
 }
