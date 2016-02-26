@@ -3,7 +3,8 @@ package org.braidner.libme.core.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,8 +17,7 @@ public class Library {
     @Id private String id;
     private String name;
     private User owner;
-    private List<Film> films;
-    private List<Serial> serials;
+    private Set<Content> content;
 
     public String getName() {
         return name;
@@ -35,27 +35,20 @@ public class Library {
         this.owner = owner;
     }
 
-    public List<Film> getFilms() {
-        return films;
-    }
-
-    public void setFilms(List<Film> films) {
-        this.films = films;
-    }
-
-    public List<Serial> getSerials() {
-        return serials;
-    }
-
-    public void setSerials(List<Serial> serials) {
-        this.serials = serials;
-    }
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public Set<Content> getContent() {
+        if (content == null) content = new HashSet<>();
+        return content;
+    }
+
+    public void setContent(Set<Content> content) {
+        this.content = content;
     }
 }

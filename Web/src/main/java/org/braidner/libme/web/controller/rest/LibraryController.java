@@ -1,10 +1,12 @@
 package org.braidner.libme.web.controller.rest;
 
+import org.braidner.libme.core.model.Content;
 import org.braidner.libme.core.model.Library;
 import org.braidner.libme.core.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -28,5 +30,10 @@ public class LibraryController {
     @RequestMapping(value = "/search/:name")
     public void searchContent(@PathVariable String name) {
         System.out.println("search for content with param: " + name);
+    }
+
+    @RequestMapping("/upload")
+    public void uploadContent(@RequestBody Content content) {
+        libraryService.upload(content);
     }
 }

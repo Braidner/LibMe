@@ -1,5 +1,6 @@
 package org.braidner.libme.core.service;
 
+import org.braidner.libme.core.model.Content;
 import org.braidner.libme.core.model.Library;
 import org.braidner.libme.core.model.User;
 import org.braidner.libme.core.repository.LibraryRepository;
@@ -20,5 +21,11 @@ public class LibraryService {
 
     public Library loadLibrary() {
         return libraryRepository.findByOwner(/*getCurrentUser*/new User());
+    }
+
+    public void upload(Content content) {
+        Library library = new Library(); //TODO lib init
+        library.getContent().add(content);
+        libraryRepository.save(library);
     }
 }

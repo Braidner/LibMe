@@ -23,7 +23,7 @@ public class AuditAspect {
     private static Logger logger = LoggerFactory.getLogger(AuditAspect.class);
 
     @Around("within(org.braidner.libme.*.service..*)")
-    public Object hystrixServiceMonitor(final ProceedingJoinPoint aJoinPoint) throws Throwable {
+    public Object audit(final ProceedingJoinPoint aJoinPoint) throws Throwable {
         String auditString = Stream.of("AUDIT: Call service",  aJoinPoint.getSignature().toShortString())
                 .collect(Collectors.joining(": "));
         logger.info(auditString);

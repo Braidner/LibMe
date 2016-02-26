@@ -6,5 +6,5 @@ package org.braidner.libme.core.model;
  * Date: 30/01/2016
  * Time: 13:07
  */
-public class Book {
+public class Book extends Content {
 }

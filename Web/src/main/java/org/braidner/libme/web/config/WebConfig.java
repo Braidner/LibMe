@@ -9,7 +9,6 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory
 import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 
 import java.util.concurrent.TimeUnit;
@@ -37,8 +36,8 @@ public class WebConfig implements CommandLineRunner {
     @Bean
     public EmbeddedServletContainerFactory servletContainer() {
         TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
-        System.out.println(System.getProperty("Dserver.port"));
-        factory.setPort(Integer.parseInt(System.getProperty("server.port")));
+        String port = System.getProperty("server.port");
+        factory.setPort(Integer.parseInt(port != null ? port : "8080"));
         factory.setSessionTimeout(10, TimeUnit.MINUTES);
         factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/notfound.html")); //TODO add 404 page
         return factory;
