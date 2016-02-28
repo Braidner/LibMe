@@ -3,7 +3,12 @@ package org.braidner.libme.web.controller.rest;
 import org.braidner.libme.core.model.User;
 import org.braidner.libme.core.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,15 +24,21 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public @ResponseBody String login() {
+    public String login() {
         boolean hasAccess = userService.login("admin", "123");
         return Boolean.toString(hasAccess);
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public @ResponseBody String registration(@RequestBody User user) {
+    @RequestMapping(value = "registration", method = RequestMethod.POST)
+    public String registration(Principal principal, @RequestBody User user) {
+        System.out.println(principal);
         userService.createUser(user.getLogin(), user.getPassword()); // TODO validation
         return "okay";
+    }
+
+    @RequestMapping("user")
+    public Principal user(Principal user) {
+        return user;
     }
 
 }

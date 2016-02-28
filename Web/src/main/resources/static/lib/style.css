@@ -43,6 +43,8 @@ body {
 .content-item {
     margin-bottom: 20px;
     margin-right: 40px;
+    display: inline-block;
+    position: relative;
     width: 170px;
     height: 328px;
     float: left;
@@ -152,6 +154,12 @@ a:hover, a:focus, a {
     margin-top: 80px;
     height: 413px;
     background: #0B1612;
+}
+
+.top-content > .row {
+    overflow-x: hidden;
+    white-space: nowrap;
+    overflow-y: hidden;
 }
 
 .top-content > .last {
