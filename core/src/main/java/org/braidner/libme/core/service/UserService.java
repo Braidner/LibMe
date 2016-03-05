@@ -4,6 +4,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.braidner.libme.core.model.User;
 import org.braidner.libme.core.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,6 +27,7 @@ public class UserService {
 
     public void createUser(String login, String password) {
         User user = new User();
+        password = new BCryptPasswordEncoder().encode(password);
         user.setLogin(login);
         user.setPassword(password);
         userRepository.save(user);
