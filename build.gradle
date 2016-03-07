@@ -15,5 +15,8 @@ allprojects {
 }
 
 task stage(dependsOn:":Web:installDist") {
+}
 
+task StartWeb {
+    dependsOn "Web:startServer"
 }

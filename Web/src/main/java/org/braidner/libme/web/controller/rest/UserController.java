@@ -23,16 +23,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String login() {
-        boolean hasAccess = userService.login("admin", "123");
-        return Boolean.toString(hasAccess);
-    }
-
     @RequestMapping(value = "registration", method = RequestMethod.POST)
     public String registration(Principal principal, @RequestBody User user) {
-        System.out.println(principal);
-        userService.createUser(user.getLogin(), user.getPassword()); // TODO validation
+        if (principal == null) {
+            userService.createUser(user.getLogin(), user.getPassword()); // TODO validation
+        }
         return "okay";
     }
 

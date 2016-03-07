@@ -2,6 +2,7 @@ package org.braidner.libme.core.torrent;
 
 import com.turn.ttorrent.client.Client;
 import com.turn.ttorrent.client.SharedTorrent;
+import com.turn.ttorrent.tracker.TrackedTorrent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +24,8 @@ public class TorrentClient {
 
     private String name;
 
+    private String torrentPath;
+
     public TorrentClient(String filePath, String output) {
         File torrentFile = new File(filePath);
         File outputDir = new File(output);
@@ -43,8 +46,6 @@ public class TorrentClient {
             name = torrentFile.getName();
             torrent = client;
 
-//            Tracker tracker = new Tracker(new InetSocketAddress(6969));
-//            tracker.getTrackedTorrents().forEach(trackedTorrent -> trackedTorrent.getAnnounceList());
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
         }
@@ -64,5 +65,22 @@ public class TorrentClient {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTorrentPath() {
+        return torrentPath;
+    }
+
+    public void setTorrentPath(String torrentPath) {
+        this.torrentPath = torrentPath;
+    }
+
+    public TrackedTorrent getTrackedTorrent() {
+        try {
+            return TrackedTorrent.load(new File(torrentPath));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        return null;
     }
 }

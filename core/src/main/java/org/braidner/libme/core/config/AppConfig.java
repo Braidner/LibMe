@@ -1,5 +1,6 @@
 package org.braidner.libme.core.config;
 
+import com.turn.ttorrent.tracker.Tracker;
 import org.braidner.libme.core.service.TorrentService;
 import org.braidner.libme.core.torrent.TorrentClient;
 import org.slf4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import java.net.InetAddress;
 import java.util.List;
 
 /**
@@ -40,6 +42,9 @@ public class AppConfig implements CommandLineRunner {
 
         List<TorrentClient> torrentClients = torrentService.initTorrentManager();
 
+        Tracker tracker = new Tracker(InetAddress.getLocalHost());
+        torrentClients.parallelStream().forEach(torrentClient -> tracker.announce(torrentClient.getTrackedTorrent()));
+        tracker.start();
 
     }
 }
