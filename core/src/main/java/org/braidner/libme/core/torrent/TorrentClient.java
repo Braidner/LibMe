@@ -18,7 +18,7 @@ import java.net.InetAddress;
  */
 public class TorrentClient {
 
-    private final static Logger logger = LoggerFactory.getLogger(TorrentClient.class);
+    private final static Logger LOG = LoggerFactory.getLogger(TorrentClient.class);
 
     private Client torrent;
 
@@ -47,7 +47,7 @@ public class TorrentClient {
             torrent = client;
 
         } catch (IOException e) {
-            logger.error(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
     }
 
@@ -79,7 +79,7 @@ public class TorrentClient {
         try {
             return TrackedTorrent.load(new File(torrentPath));
         } catch (IOException e) {
-            System.out.println(e);
+            LOG.error(e.getMessage(), e);
         }
         return null;
     }

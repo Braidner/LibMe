@@ -27,10 +27,11 @@ dependencies {
 }
 
 compass {
+//    debugInfo = true
     cssDir = file("public/styles")
     sassDir = file("src/main/resources/static/app")
 }
 
 task startServer {
-    dependsOn compassWatchStart, bootRun
+    dependsOn compassWatch, bootRun
 }
