@@ -8,7 +8,8 @@ $name-height: 48px;
 .content-item {
   padding-top: 20px;
   width: $item-width;
-  height: $item-height;
+  //height: $item-height;
+  height: auto;
 
   .poster {
     width: $item-width;

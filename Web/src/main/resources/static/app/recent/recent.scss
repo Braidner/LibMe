@@ -33,4 +33,8 @@ $container-height: 413px;
   &.ng-enter.ng-enter-active {
     height: $container-height;
   }
+
+  .owl-controls {
+    display: none !important;
+  }
 }

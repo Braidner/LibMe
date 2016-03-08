@@ -238,37 +238,41 @@ a {
 .recent.ng-leave, .recent.ng-enter.ng-enter-active {
   height: 413px;
 }
+/* line 37, ../app/recent/recent.scss */
+.recent .owl-controls {
+  display: none !important;
+}
 
 /* line 8, ../app/content-item.scss */
 .content-item {
   padding-top: 20px;
   width: 170px;
-  height: 327px;
+  height: auto;
 }
-/* line 13, ../app/content-item.scss */
+/* line 14, ../app/content-item.scss */
 .content-item .poster {
   width: 170px;
   height: 245px;
   margin-bottom: 10px;
   -webkit-transition: box-shadow .2s, transform .2s, opacity .2s;
 }
-/* line 20, ../app/content-item.scss */
+/* line 21, ../app/content-item.scss */
 .content-item .name {
   width: 170px;
   margin-bottom: 5px;
 }
-/* line 25, ../app/content-item.scss */
+/* line 26, ../app/content-item.scss */
 .content-item .uploaded {
   width: 170px;
   font-size: 16px;
   line-height: 19px;
   color: #C3C2C0;
 }
-/* line 32, ../app/content-item.scss */
+/* line 33, ../app/content-item.scss */
 .content-item:hover {
   cursor: pointer;
 }
-/* line 34, ../app/content-item.scss */
+/* line 35, ../app/content-item.scss */
 .content-item:hover .poster {
   -webkit-box-shadow: 0 0 5px #F7CE40;
   -webkit-transform: translate(0, -7px);
