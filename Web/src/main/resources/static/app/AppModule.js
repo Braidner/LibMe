@@ -8,13 +8,15 @@
         'ngRoute',
 
         //Modules
-        'LibraryModule'
-    ]).controller("LastContentCtrl", LastContentCtrl);
+        'LibraryModule',
+        'RecentModule'
+    ])
+        .controller("NavigationCtrl", NavigationCtrl);
 
 
     angular.module('App').run(function ($rootScope) {
         $rootScope.$on('$routeChangeStart', function (event, next) {
-            console.log(next);
+             //TODO add monitoring
         });
     });
 
@@ -34,32 +36,58 @@
         $locationProvider.html5Mode(true);
     }]);
 
-    angular.module('App').controller('AppCtrl', function ($scope) {
-        $scope.activeTab = "";
+    function NavigationCtrl ($scope) {
+        $scope.activeTab = "/";
 
         $scope.$on('$routeChangeSuccess', function (event, current) {
-            $scope.activeTab = current.$$route.originalPath;
+            if (current.$$route) {
+                $scope.activeTab = current.$$route.originalPath;
+            }
+            var totalWidth = $('menu ul').width();
+            $("menu ul li").each(function (index, el) {
+                var width = $(el).outerWidth();
+                var tab = $scope.tabs[index];
+                tab.index = index;
+                if (index == 0) {
+                    tab.left = 0;
+                    tab.right = totalWidth - width;
+                } else {
+                    var lastTab = $scope.tabs[index - 1];
+                    tab.left = totalWidth - lastTab.right;
+                    tab.right = lastTab.right - width;
+                }
+                if (tab.id === $scope.activeTab) {
+                    selectTab(tab);
+                }
+            });
         });
 
         $scope.tabs = [
-            new Tab("/", "Все", true),
+            new Tab("/", "Все"),
             new Tab("/film", "Фильмы"),
             new Tab("/serial", "Сериалы"),
             new Tab("/anime", "Аниме"),
             new Tab("/other", "Прочее")
         ];
-    });
+        
+        $scope.selectTab = selectTab;
 
-    LastContentCtrl.$inject = ['$scope'];
-    function LastContentCtrl($scope) {
-        $scope.library = [
-            {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'}
-        ]
+        function selectTab(tab) {
+            var selectedTab;
+            var indicator = $('.menu-indicator');
+            var index = $('.active-menu').index();
+
+            selectedTab = $scope.tabs[tab.index];
+            if (index > tab) {
+                indicator.addClass("left");
+                indicator.css({left: selectedTab.left});
+                indicator.css({right: selectedTab.right});
+            } else {
+                indicator.addClass("right");
+                indicator.css({right: selectedTab.right});
+                indicator.css({left: selectedTab.left});
+            }
+        }
     }
 
     function Tab(id, name, selected) {

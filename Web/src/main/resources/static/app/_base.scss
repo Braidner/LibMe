@@ -1,12 +1,31 @@
-$blueprint-grid-columns : 24;
-$blueprint-grid-width   : 30px;
-$blueprint-grid-margin  : 10px;
-$font-color             : #333;
+$background-color: #1A2930;
+$font-color: white;
+$font-size: 20px;
+$select-color: #F7CE40;
 
-@import 'compass';
+@import "compass";
 @import "compass/reset";
-@import "compass/utilities";
 
-.test {
-  margin: $blueprint-grid-width;
+@font-face {
+  font-family: Roboto-Regular;
+  src: url('../lib/font/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: Roboto-Medium;
+  src: url('../lib/font/Roboto/Roboto-Medium.ttf');
+}
+
+*, *:after, *:before {
+  @include box-sizing(border-box);
+  color: $font-color;
+}
+
+body {
+  padding-top: 80px;
+  background: $background-color;
+  font-size: $font-size;
+  line-height: 24px;
+  font-family: "Roboto-Regular", serif;
+  height: auto;
 }

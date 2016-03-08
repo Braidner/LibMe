@@ -1,0 +1,25 @@
+$background-color: #0B1612;
+$container-height: 413px;
+$container-margit: 110px;
+
+.recent {
+  background: $background-color;
+  height: $container-height;
+  padding-left: $container-margit;
+  padding-right: $container-margit;
+
+  h3 {
+    color: #C3C2C0;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+  .content-item {
+    margin-right: 40px;
+  }
+
+
+  //.owl-carousel {
+  //
+  //}
+}
