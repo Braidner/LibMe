@@ -71,7 +71,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: Roboto-Medium;
   src: url("../lib/font/Roboto/Roboto-Medium.ttf");
 }
-/* line 19, ../app/_base.scss */
+/* line 21, ../app/_base.scss */
 *, *:after, *:before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -79,7 +79,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: white;
 }
 
-/* line 24, ../app/_base.scss */
+/* line 26, ../app/_base.scss */
 body {
   padding-top: 80px;
   background: #1A2930;
@@ -206,22 +206,38 @@ a {
   z-index: 1030;
 }
 
-/* line 5, ../app/recent/recent.scss */
+/* line 6, ../app/recent/recent.scss */
 .recent {
   background: #0B1612;
   height: 413px;
-  padding-left: 110px;
-  padding-right: 110px;
+  z-index: 100;
+  padding-left: 10%;
+  padding-right: 10%;
 }
-/* line 11, ../app/recent/recent.scss */
+/* line 13, ../app/recent/recent.scss */
 .recent h3 {
   color: #C3C2C0;
   padding-top: 10px;
   padding-bottom: 20px;
 }
-/* line 17, ../app/recent/recent.scss */
+/* line 19, ../app/recent/recent.scss */
 .recent .content-item {
   margin-right: 40px;
+}
+/* line 23, ../app/recent/recent.scss */
+.recent.ng-enter, .recent.ng-leave {
+  -moz-transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+/* line 27, ../app/recent/recent.scss */
+.recent.ng-enter, .recent.ng-leave.ng-leave-active {
+  height: 0;
+}
+/* line 32, ../app/recent/recent.scss */
+.recent.ng-leave, .recent.ng-enter.ng-enter-active {
+  height: 413px;
 }
 
 /* line 6, ../app/content-item.scss */

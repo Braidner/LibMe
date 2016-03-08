@@ -6,6 +6,7 @@
 
     angular.module('App', [
         'ngRoute',
+        'ngAnimate',
 
         //Modules
         'LibraryModule',
@@ -15,9 +16,14 @@
 
 
     angular.module('App').run(function ($rootScope) {
+        $rootScope.activeTab = "/";
         $rootScope.$on('$routeChangeStart', function (event, next) {
              //TODO add monitoring
-        });
+            if (next.$$route) {
+                $rootScope.activeTab = next.$$route.originalPath;
+            }
+        })
+
     });
 
     angular.module('App').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
@@ -37,12 +43,12 @@
     }]);
 
     function NavigationCtrl ($scope) {
-        $scope.activeTab = "/";
+        // $scope.activeTab = "/";
 
-        $scope.$on('$routeChangeSuccess', function (event, current) {
-            if (current.$$route) {
-                $scope.activeTab = current.$$route.originalPath;
-            }
+        $scope.$on('$routeChangeStart', function (event, current) {
+            // if (current.$$route) {
+            //     $scope.activeTab = current.$$route.originalPath;
+            // }
             var totalWidth = $('menu ul').width();
             $("menu ul li").each(function (index, el) {
                 var width = $(el).outerWidth();
@@ -78,11 +84,13 @@
             var index = $('.active-menu').index();
 
             selectedTab = $scope.tabs[tab.index];
-            if (index > tab) {
+            if (index > tab.index) {
+                indicator.removeClass("right");
                 indicator.addClass("left");
                 indicator.css({left: selectedTab.left});
                 indicator.css({right: selectedTab.right});
             } else {
+                indicator.removeClass("left");
                 indicator.addClass("right");
                 indicator.css({right: selectedTab.right});
                 indicator.css({left: selectedTab.left});

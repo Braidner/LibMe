@@ -9,12 +9,6 @@
 
     RecentCtrl.$inject = ['$scope'];
     function RecentCtrl($scope) {
-        $scope.$on('$routeChangeSuccess', function (event, current) {
-            if (current.$$route) {
-                $scope.activeTab = current.$$route.originalPath;
-            }
-        });
-
         $scope.library = [
             {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
             {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
@@ -30,7 +24,7 @@
         var linker = function (scope, element, attr) {
             
             var loadCarousel = function () {
-                element.owlCarousel({itemsDesktop: 6, itemsDesktopSmall: 5});
+                element.owlCarousel({items: 6, itemsDesktop: [1300, 5]});
             };
 
             scope.$watchCollection(attr.owlCarousel, function (value) {
