@@ -71,7 +71,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: Roboto-Medium;
   src: url("../lib/font/Roboto/Roboto-Medium.ttf");
 }
-/* line 21, ../app/_base.scss */
+/* line 25, ../app/_base.scss */
 *, *:after, *:before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -79,7 +79,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: white;
 }
 
-/* line 26, ../app/_base.scss */
+/* line 30, ../app/_base.scss */
 body {
   padding-top: 80px;
   background: #1A2930;
@@ -218,7 +218,6 @@ a {
 .recent h3 {
   color: #C3C2C0;
   padding-top: 10px;
-  padding-bottom: 20px;
 }
 /* line 19, ../app/recent/recent.scss */
 .recent .content-item {
@@ -240,26 +239,36 @@ a {
   height: 413px;
 }
 
-/* line 6, ../app/content-item.scss */
+/* line 8, ../app/content-item.scss */
 .content-item {
+  padding-top: 20px;
   width: 170px;
   height: 327px;
 }
-/* line 10, ../app/content-item.scss */
+/* line 13, ../app/content-item.scss */
 .content-item .poster {
   width: 170px;
   height: 245px;
   margin-bottom: 10px;
 }
-/* line 16, ../app/content-item.scss */
+/* line 19, ../app/content-item.scss */
 .content-item .name {
   width: 170px;
   margin-bottom: 5px;
 }
-/* line 21, ../app/content-item.scss */
+/* line 24, ../app/content-item.scss */
 .content-item .uploaded {
   width: 170px;
   font-size: 16px;
   line-height: 19px;
   color: #C3C2C0;
+}
+/* line 31, ../app/content-item.scss */
+.content-item:hover {
+  cursor: pointer;
+}
+/* line 33, ../app/content-item.scss */
+.content-item:hover .poster {
+  -webkit-box-shadow: 0 0 5px #fafafa;
+  -webkit-transform: translate(0, -4px);
 }

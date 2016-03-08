@@ -18,6 +18,10 @@ $container-padding: 10%;
   src: url('../lib/font/Roboto/Roboto-Medium.ttf');
 }
 
+@mixin material-shadow {
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.16), 5px 5px 5px 5px rgba(0,0,0,0.12);
+}
+
 *, *:after, *:before {
   @include box-sizing(border-box);
   color: $font-color;

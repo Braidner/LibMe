@@ -3,7 +3,10 @@ $item-height: 327px;
 $poster-height: 245px;
 $name-height: 48px;
 
+@import "base";
+
 .content-item {
+  padding-top: 20px;
   width: $item-width;
   height: $item-height;
 
@@ -23,5 +26,13 @@ $name-height: 48px;
     font-size: 16px;
     line-height: 19px;
     color: #C3C2C0;
+  }
+
+  &:hover {
+    cursor: pointer;
+    .poster {
+      -webkit-box-shadow: 0 0 5px rgba(250, 250, 250, 1);
+      -webkit-transform: translate(0, -4px);
+    }
   }
 }
