@@ -7,7 +7,12 @@
 
     function contentItem() {
         return {
-            restrict: 'E'
+            restrict: 'E',
+            replace: true,
+            scope: {
+                item: '='
+            },
+            templateUrl: '/app/item/item.html'
         }
     }
 })();

@@ -1,13 +1,4 @@
 <h3>Последнее</h3>
 <div class="owl-carousel" owl-carousel>
-    <div class="content-item" ng-repeat="film in library">
-        <div class="poster" background="{{film.poster}}">
-        </div>
-        <div class="name">
-            {{film.name | limitTo:22}}<span ng-if="film.name.length > 22">...</span>
-        </div>
-        <div class="uploaded">
-            10.01.2016
-        </div>
-    </div>
+    <content-item item="item" ng-repeat="item in content"></content-item>
 </div>

@@ -9,7 +9,7 @@
 
     RecentCtrl.$inject = ['$scope'];
     function RecentCtrl($scope) {
-        $scope.library = [
+        $scope.content = [
             {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
             {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
             {name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},

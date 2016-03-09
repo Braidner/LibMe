@@ -10,6 +10,8 @@
 
         //Modules
         'LibraryModule',
+        'ContentModule',
+        'ItemModule',
         'RecentModule'
     ])
         .controller("NavigationCtrl", NavigationCtrl);
@@ -28,14 +30,14 @@
 
     angular.module('App').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider.when('/', {
-            templateUrl: '/app/library/library.html',
-            controller: 'LibraryCtrl'
+            templateUrl: '/app/content/content.html',
+            controller: 'AllContentCtrl'
         }).when('/film', {
-            templateUrl: '/app/library/library.html',
-            controller: 'FilmCtrl'
+            templateUrl: '/app/content/content.html',
+            controller: 'FilmContentCtrl'
         }).when('/serial', {
-            templateUrl: '/app/library/library.html',
-            controller: 'FilmCtrl'
+            templateUrl: '/app/content/content.html',
+            controller: 'SerialContentCtrl'
         }).otherwise({
             redirectTo: '/'
         });
