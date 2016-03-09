@@ -1,0 +1,10 @@
+<div class="content-item">
+    <div class="poster" background="{{item.poster}}">
+    </div>
+    <div class="content-name">
+        {{item.name | limitTo:22}}<span ng-if="item.name.length > 22">...</span>
+    </div>
+    <div class="content-date">
+        10.01.2016
+    </div>
+</div>
