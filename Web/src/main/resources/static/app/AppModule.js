@@ -9,7 +9,6 @@
         'ngAnimate',
 
         //Modules
-        'LibraryModule',
         'ContentModule',
         'ItemModule',
         'RecentModule'
