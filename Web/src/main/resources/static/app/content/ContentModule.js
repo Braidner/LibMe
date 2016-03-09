@@ -3,7 +3,7 @@
  */
 
 (function () {
-    angular.module('ContentModule', [])
+    angular.module('ContentModule', ['ContentServices'])
         .controller('AllContentCtrl', AllContentCtrl)
         .controller('SerialContentCtrl', SerialContentCtrl)
         .controller('FilmContentCtrl', FilmContentCtrl);
