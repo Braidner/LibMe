@@ -5,8 +5,17 @@
     angular.module('ItemModule', [])
         .directive('contentItem', contentItem);
 
-    function contentItem() {
+    contentItem.$inject = ['$location'];
+    function contentItem($location) {
+        function linker(scope, element, attr) {
+            element.on('click', function (event) {
+                console.log(scope.item);
+                $location.path("/film/" + scope.item.name);
+                scope.$apply();
+            });
+        }
         return {
+            link: linker,
             restrict: 'E',
             replace: true,
             scope: {

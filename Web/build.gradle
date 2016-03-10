@@ -7,14 +7,12 @@ buildscript {
         classpath(
                 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE',
                 'org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:1.0.2',
-                "com.github.robfletcher:compass-gradle-plugin:2.0.5"
         )
     }
 }
 
 apply plugin: "spring-boot"
 apply plugin: 'application'
-apply plugin: "com.github.robfletcher.compass"
 
 repositories {
     mavenCentral()
@@ -24,14 +22,4 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web:1.3.2.RELEASE'
     compile project(":core")
     compile project(":Utils")
-}
-
-compass {
-//    debugInfo = true
-    cssDir = file("public/styles")
-    sassDir = file("src/main/resources/static/app")
-}
-
-task startServer {
-    dependsOn compassWatch, bootRun
 }
