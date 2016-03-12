@@ -194,9 +194,9 @@ a {
 .recent {
   background: #0B1612;
   height: 413px;
-  z-index: 100;
   padding-left: 10%;
   padding-right: 10%;
+  overflow: hidden;
 }
 .recent h3 {
   color: #C3C2C0;

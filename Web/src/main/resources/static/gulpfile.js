@@ -48,6 +48,7 @@ gulp.task('build', function(){
 });
 
 gulp.task('watch', function () {
+    gulp.run('build');
     // JS watcher
     gulp.watch("./app/**/*.js", function(){
         gulp.run('lint', 'minify');
