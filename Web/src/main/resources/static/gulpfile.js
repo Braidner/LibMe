@@ -6,15 +6,15 @@ var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var ngAnnotate = require('gulp-ng-annotate');
+var compass = require('gulp-compass');
+var cleanCss = require('gulp-clean-css');
 
-// Линтинг файлов
 gulp.task('lint', function() {
     gulp.src('./app/**/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
 
-// Конкатенация и минификация файлов
 gulp.task('minify', function(){
     gulp.src('./app/**/*.js')
         .pipe(sourcemaps.init())
@@ -27,12 +27,39 @@ gulp.task('minify', function(){
         .pipe(gulp.dest('./dist'));
 });
 
-// Действия по умолчанию
-gulp.task('default', function(){
-    gulp.run('lint', 'minify');
+gulp.task('compass', function() {
+    gulp.src('./app/**/*.scss')
+        .pipe(compass({
+            config_file: './config.rb',
+            css: 'stylesheets',
+            sass: 'app'
+        }));
+});
 
-    // Отслеживаем изменения в файлах
-    gulp.watch("./app/**/*.js", function(event){
+gulp.task('css', function () {
+    gulp.src('./stylesheets/application.css')
+        .pipe(cleanCss())
+        .pipe(rename("all.min.css"))
+        .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('build', function(){
+    gulp.run('lint', 'minify', 'compass', 'css');
+});
+
+gulp.task('watch', function () {
+    // JS watcher
+    gulp.watch("./app/**/*.js", function(){
         gulp.run('lint', 'minify');
+    });
+
+    // Compass watcher
+    gulp.watch("./app/**/*.scss", function(){
+        gulp.run('compass');
+    });
+
+    // Css watcher
+    gulp.watch('./stylesheets/application.css', function(){
+        gulp.run('css');
     });
 });

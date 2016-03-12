@@ -1,4 +1,3 @@
-/* line 5, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -20,45 +19,37 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../../Ruby22-x64/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -71,7 +62,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: Roboto-Medium;
   src: url("../lib/font/Roboto/Roboto-Medium.ttf");
 }
-/* line 26, ../app/_base.scss */
 *, *:after, *:before {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -79,7 +69,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: white;
 }
 
-/* line 31, ../app/_base.scss */
 body {
   padding-top: 80px;
   background: #1A2930;
@@ -89,13 +78,11 @@ body {
   height: auto;
 }
 
-/* line 1, ../app/upload/upload.scss */
 .container {
   width: 900px;
   height: auto;
 }
 
-/* line 10, ../app/application.scss */
 nav {
   display: flex;
   align-items: center;
@@ -106,11 +93,9 @@ nav {
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
-/* line 18, ../app/application.scss */
 nav #logo {
   line-height: 50px;
 }
-/* line 24, ../app/application.scss */
 nav menu ul {
   width: 100%;
   display: flex;
@@ -121,7 +106,6 @@ nav menu ul {
   margin: 0 auto;
   white-space: nowrap;
 }
-/* line 34, ../app/application.scss */
 nav menu ul li {
   -webkit-flex-grow: 1;
   flex-grow: 1;
@@ -130,7 +114,6 @@ nav menu ul li {
   text-align: center;
   line-height: 80px;
 }
-/* line 41, ../app/application.scss */
 nav menu ul li a {
   padding: 0 28px 0 28px;
   color: white;
@@ -139,11 +122,9 @@ nav menu ul li a {
   height: 100%;
   transition: color .28s ease;
 }
-/* line 50, ../app/application.scss */
 nav menu ul li.active-menu a {
   color: #F7CE40;
 }
-/* line 56, ../app/application.scss */
 nav menu ul .menu-indicator {
   position: absolute;
   bottom: 0;
@@ -154,27 +135,23 @@ nav menu ul .menu-indicator {
   top: calc(100% - 4px);
   will-change: left, right;
 }
-/* line 68, ../app/application.scss */
 nav menu ul .menu-indicator.left {
   -moz-transition: left 0.125s cubic-bezier(0.35, 0, 0.25, 1), right 0.25s cubic-bezier(0.35, 0, 0.25, 1);
   -o-transition: left 0.125s cubic-bezier(0.35, 0, 0.25, 1), right 0.25s cubic-bezier(0.35, 0, 0.25, 1);
   -webkit-transition: left 0.125s cubic-bezier(0.35, 0, 0.25, 1), right 0.25s cubic-bezier(0.35, 0, 0.25, 1);
   transition: left 0.125s cubic-bezier(0.35, 0, 0.25, 1), right 0.25s cubic-bezier(0.35, 0, 0.25, 1);
 }
-/* line 72, ../app/application.scss */
 nav menu ul .menu-indicator.right {
   -moz-transition: left 0.25s cubic-bezier(0.35, 0, 0.25, 1), right 0.125s cubic-bezier(0.35, 0, 0.25, 1);
   -o-transition: left 0.25s cubic-bezier(0.35, 0, 0.25, 1), right 0.125s cubic-bezier(0.35, 0, 0.25, 1);
   -webkit-transition: left 0.25s cubic-bezier(0.35, 0, 0.25, 1), right 0.125s cubic-bezier(0.35, 0, 0.25, 1);
   transition: left 0.25s cubic-bezier(0.35, 0, 0.25, 1), right 0.125s cubic-bezier(0.35, 0, 0.25, 1);
 }
-/* line 79, ../app/application.scss */
 nav .settings {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-/* line 84, ../app/application.scss */
 nav .settings div {
   display: flex;
   justify-content: center;
@@ -185,19 +162,16 @@ nav .settings div {
   margin-left: 2px;
 }
 
-/* line 97, ../app/application.scss */
 ul {
   padding: 0;
   list-style-type: none;
 }
 
-/* line 102, ../app/application.scss */
 a {
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* line 108, ../app/application.scss */
 .fixed-top {
   position: fixed;
   top: 0;
@@ -206,7 +180,6 @@ a {
   z-index: 1030;
 }
 
-/* line 3, ../app/content/content.scss */
 .content {
   padding-left: 10%;
   padding-right: 10%;
@@ -218,7 +191,6 @@ a {
   justify-content: space-between;
 }
 
-/* line 6, ../app/recent/recent.scss */
 .recent {
   background: #0B1612;
   height: 413px;
@@ -226,65 +198,53 @@ a {
   padding-left: 10%;
   padding-right: 10%;
 }
-/* line 13, ../app/recent/recent.scss */
 .recent h3 {
   color: #C3C2C0;
   padding-top: 10px;
 }
-/* line 19, ../app/recent/recent.scss */
 .recent .content-item {
   margin-right: 40px;
 }
-/* line 23, ../app/recent/recent.scss */
 .recent.ng-enter, .recent.ng-leave {
   -moz-transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -o-transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -webkit-transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-/* line 27, ../app/recent/recent.scss */
 .recent.ng-enter, .recent.ng-leave.ng-leave-active {
   height: 0;
 }
-/* line 32, ../app/recent/recent.scss */
 .recent.ng-leave, .recent.ng-enter.ng-enter-active {
   height: 413px;
 }
-/* line 37, ../app/recent/recent.scss */
 .recent .owl-controls {
   display: none !important;
 }
 
-/* line 8, ../app/item/item.scss */
 .content-item {
   padding-top: 20px;
   width: 170px;
   height: auto;
 }
-/* line 14, ../app/item/item.scss */
 .content-item .poster {
   width: 170px;
   height: 245px;
   margin-bottom: 10px;
   -webkit-transition: box-shadow .2s, transform .2s, opacity .2s;
 }
-/* line 21, ../app/item/item.scss */
 .content-item .name {
   width: 170px;
   margin-bottom: 5px;
 }
-/* line 26, ../app/item/item.scss */
 .content-item .uploaded {
   width: 170px;
   font-size: 16px;
   line-height: 19px;
   color: #C3C2C0;
 }
-/* line 33, ../app/item/item.scss */
 .content-item:hover {
   cursor: pointer;
 }
-/* line 35, ../app/item/item.scss */
 .content-item:hover .poster {
   -webkit-box-shadow: 0 0 5px #F7CE40;
   -webkit-transform: translate(0, -7px);

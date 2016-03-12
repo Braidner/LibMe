@@ -2,17 +2,41 @@ buildscript {
     repositories {
         jcenter()
         maven { url "http://dl.bintray.com/robfletcher/gradle-plugins" }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath(
-                'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE',
-                'org.unbroken-dome.gradle-plugins:gradle-testsets-plugin:1.0.2',
-        )
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+        classpath "com.moowork.gradle:gradle-node-plugin:0.12"
+        classpath "com.moowork.gradle:gradle-gulp-plugin:0.12"
     }
 }
 
+apply plugin: 'com.moowork.node'
+apply plugin: "com.moowork.gulp"
 apply plugin: "spring-boot"
 apply plugin: 'application'
+
+node {
+    // Version of node to use.
+    version = '4.4.0'
+    npmVersion = '2.14.20'
+    download = false
+    workDir = file("${project.projectDir}/src/main/resources/static")
+    nodeModulesDir = file("${project.projectDir}/src/main/resources/static")
+
+}
+
+gulp {
+    // Set the directory where gulpfile.js should be found
+    workDir = file("${project.projectDir}/src/main/resources/static")
+    bufferOutput = true
+    println "workDir: " + workDir
+}
+
+gulp_build.dependsOn 'installGulp'
+gulp_build.dependsOn 'npmInstall'
+
+bootRun.dependsOn gulp_build
 
 repositories {
     mavenCentral()
