@@ -7,6 +7,7 @@
 
     contentItem.$inject = ['$location'];
     function contentItem($location) {
+        "ngInject";
         function linker(scope, element, attr) {
             element.on('click', function (event) {
                 console.log(scope.item);
@@ -22,6 +23,6 @@
                 item: '='
             },
             templateUrl: '/app/item/item.html'
-        }
+        };
     }
 })();

@@ -13,49 +13,39 @@
         'ItemModule',
         'RecentModule'
     ])
+        .config(RouteConfig)
+        .run(MonitorConfig)
         .controller("NavigationCtrl", NavigationCtrl);
 
-
-    angular.module('App').run(function ($rootScope) {
+    function MonitorConfig($rootScope) {
+        "ngInject";
         $rootScope.activeTab = "/";
         $rootScope.$on('$routeChangeStart', function (event, next) {
-             //TODO add monitoring
+            //TODO add monitoring
             if (next.$$route) {
                 $rootScope.activeTab = next.$$route.originalPath;
             }
-        })
-
-    });
-
-    angular.module('App').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        $routeProvider.when('/', {
-            templateUrl: '/app/content/content.html',
-            controller: 'AllContentCtrl'
-        }).when('/film', {
-            templateUrl: '/app/content/content.html',
-            controller: 'FilmContentCtrl'
-        }).when('/serial', {
-            templateUrl: '/app/content/content.html',
-            controller: 'SerialContentCtrl'
-        }).otherwise({
+        });
+    }
+    
+    function RouteConfig($routeProvider, $locationProvider) {
+        "ngInject";
+        $routeProvider.otherwise({
             redirectTo: '/'
         });
         $locationProvider.html5Mode(true);
-    }]);
+    }
 
     function NavigationCtrl ($scope) {
-        // $scope.activeTab = "/";
+        "ngInject";
 
         $scope.$on('$routeChangeStart', function (event, current) {
-            // if (current.$$route) {
-            //     $scope.activeTab = current.$$route.originalPath;
-            // }
             var totalWidth = $('menu ul').width();
             $("menu ul li").each(function (index, el) {
                 var width = $(el).outerWidth();
                 var tab = $scope.tabs[index];
                 tab.index = index;
-                if (index == 0) {
+                if (index === 0) {
                     tab.left = 0;
                     tab.right = totalWidth - width;
                 } else {

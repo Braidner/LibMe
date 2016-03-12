@@ -1,6 +1,6 @@
 /**
- * Created by Braidner on 30/01/2016.
- */
+    * Created by Braidner
+    */
 (function () {
     'use strict';
 
@@ -9,6 +9,7 @@
 
     RecentCtrl.$inject = ['$scope'];
     function RecentCtrl($scope) {
+        "ngInject";
         $scope.content = [
             {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
             {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
@@ -27,7 +28,7 @@
                 element.owlCarousel({items: 6, itemsDesktop: [1300, 5]});
             };
 
-            scope.$watchCollection(attr.owlCarousel, function (value) {
+            scope.$watchCollection(attr.owlCarousel, function () {
                 loadCarousel();
             });
 
@@ -36,7 +37,7 @@
         return {
             restrict: "A",
             link: linker
-        }
+        };
 
     });
 })();
