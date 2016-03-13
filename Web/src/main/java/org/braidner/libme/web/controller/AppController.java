@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AppController {
 
-    @RequestMapping({"film", "serial"})
+    @RequestMapping({"film/*", "serial/*"})
     public String index() {
         return "forward:/index.html";
     }

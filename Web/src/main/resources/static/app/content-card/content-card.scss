@@ -1,0 +1,50 @@
+@import "../base";
+
+$half-width: 590px;
+
+.content-card {
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  h4 {
+    font-size: 16px;
+    color: $font-gray;
+    padding-top: 16px;
+  }
+
+  .info {
+    padding-top: 15px;
+    height: 718px;
+    @include display-flex();
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    .content-player {
+      width: $half-width;
+      margin-right: 40px;
+      .player {
+        width: 100%;
+        height: 352px;
+      }
+    }
+
+    .content-info {
+      width: $half-width;
+      .movie-name {
+        font-size: 30px;
+        font-family: "Roboto-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        margin-bottom: 20px;
+      }
+
+      .short-details {
+        font-size: 16px;
+        color: $font-gray;
+        margin-bottom: 40px;
+      }
+
+      .description {
+        font-size: 20px;
+      }
+    }
+  }
+}

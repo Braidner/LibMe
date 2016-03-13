@@ -10,6 +10,7 @@
 
         //Modules
         'ContentModule',
+        'ContentCardModule',
         'ItemModule',
         'RecentModule'
     ])
@@ -53,7 +54,7 @@
                     tab.left = totalWidth - lastTab.right;
                     tab.right = lastTab.right - width;
                 }
-                if (tab.id === $scope.activeTab) {
+                if ($scope.activeTab.indexOf(tab.id) > -1) {
                     selectTab(tab);
                 }
             });
