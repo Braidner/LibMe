@@ -12,6 +12,7 @@ public class Content {
     @Id protected String id;
     private String type;
     protected String name;
+    protected String poster;
 
     public String getId() {
         return id;
@@ -36,5 +37,21 @@ public class Content {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    @Override
+    public String toString() {
+        return "Content{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
