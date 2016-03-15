@@ -198,6 +198,7 @@ a {
 .content-card {
   padding-left: 10%;
   padding-right: 10%;
+  height: 631px;
 }
 .content-card h4 {
   font-size: 16px;
@@ -206,11 +207,23 @@ a {
 }
 .content-card .info {
   padding-top: 15px;
-  height: 718px;
   display: -webkit-flex;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+}
+.content-card .info::after {
+  content: '';
+  background: url("http://cdn.shazoo.ru/136056_4ODSJsX9dy_head.jpg") no-repeat center center, linear-gradient(to top, #000000, #7a8485);
+  background-size: cover;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  height: 631px;
 }
 .content-card .info .content-player {
   width: 590px;
@@ -292,5 +305,8 @@ a {
   cursor: pointer;
 }
 .content-item:hover .poster {
+  -moz-transform: translate(0, -7px);
+  -ms-transform: translate(0, -7px);
   -webkit-transform: translate(0, -7px);
+  transform: translate(0, -7px);
 }
