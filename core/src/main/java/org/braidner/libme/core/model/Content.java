@@ -13,6 +13,7 @@ public class Content {
     private String type;
     protected String name;
     protected String poster;
+    protected User owner;
 
     public String getId() {
         return id;
@@ -45,6 +46,14 @@ public class Content {
 
     public void setPoster(String poster) {
         this.poster = poster;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     @Override

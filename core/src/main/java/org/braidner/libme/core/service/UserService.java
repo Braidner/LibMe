@@ -19,20 +19,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @HystrixCommand(groupKey = "UserService", commandKey = "Login")
-    public boolean login(String login, String password) {
-        User user = userRepository.findByLogin(login);
-        return user != null && password.equals(user.getPassword());
-    }
-
-    public void createUser(String login, String password) {
+    public User createUser(String login, String password) {
         User user = new User();
         password = new BCryptPasswordEncoder().encode(password);
         user.setLogin(login);
         user.setPassword(password);
-        userRepository.save(user);
+        //todo notify
+        return userRepository.save(user);
     }
 
+    @HystrixCommand(groupKey = "UserService", commandKey = "Login")
     public User findUser(String login) {
         return userRepository.findByLogin(login);
     }

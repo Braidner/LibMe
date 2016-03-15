@@ -1,5 +1,6 @@
 package org.braidner.libme.core.repository;
 
+import com.google.common.collect.Lists;
 import org.braidner.libme.core.config.AppConfig;
 import org.braidner.libme.core.model.Content;
 import org.braidner.libme.core.model.Film;
@@ -10,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +30,7 @@ public class ContentRepositoryTest {
 
     @Autowired
     private ContentRepository contentRepository;
-    Film film;
+    private Film film;
 
     @Before
     public void setUp() throws Exception {
@@ -56,8 +58,15 @@ public class ContentRepositoryTest {
     @Test
     public void testFindByName() throws Exception {
         List<Content> films = contentRepository.findByName(film.getName());
-        assertNotNull("Content with name ${}", film);
+        assertNotNull("Content with name " + film.getName() + " не найден", films);
         films = films.stream().filter(film -> film.getId().equals(this.film.getId())).collect(Collectors.toList());
         assertFalse(films.isEmpty());
+    }
+
+    @Test
+    public void testFindAll() throws Exception {
+        List<Content> all = contentRepository.findAll();
+        assertFalse("Content not found", CollectionUtils.isEmpty(all));
+        assertTrue("Content with id " + film.getId() + " не найден", all.stream().filter(film -> film.getId().equals(this.film.getId())).count() > 0);
     }
 }

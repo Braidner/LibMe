@@ -3,9 +3,12 @@ package org.braidner.libme.core.service;
 import org.braidner.libme.core.model.Content;
 import org.braidner.libme.core.model.Library;
 import org.braidner.libme.core.model.User;
-import org.braidner.libme.core.repository.LibraryRepository;
+import org.braidner.libme.core.repository.ContentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,15 +20,19 @@ import org.springframework.stereotype.Service;
 public class LibraryService {
 
     @Autowired
-    private LibraryRepository libraryRepository;
+    private Authentication authentication;
 
-    public Library loadLibrary() {
-        return libraryRepository.findByOwner(/*getCurrentUser*/new User());
+    @Autowired
+    private ContentRepository contentRepository;
+
+    public List<Content> loadLibrary() {
+        return contentRepository.findByOwner((User) authentication.getPrincipal());
     }
 
-    public void upload(Content content) {
-        Library library = new Library(); //TODO lib init
+    public Content upload(Content content) {
+        content.setOwner((User) authentication.getPrincipal());
+        Library library = new Library();
         library.getContent().add(content);
-        libraryRepository.save(library);
+        return contentRepository.save(content);
     }
 }
