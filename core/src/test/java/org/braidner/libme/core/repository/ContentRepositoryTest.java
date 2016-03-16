@@ -1,6 +1,5 @@
 package org.braidner.libme.core.repository;
 
-import com.google.common.collect.Lists;
 import org.braidner.libme.core.config.AppConfig;
 import org.braidner.libme.core.model.Content;
 import org.braidner.libme.core.model.Film;

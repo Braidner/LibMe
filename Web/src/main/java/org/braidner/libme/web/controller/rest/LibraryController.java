@@ -1,13 +1,14 @@
 package org.braidner.libme.web.controller.rest;
 
 import org.braidner.libme.core.model.Content;
-import org.braidner.libme.core.model.Library;
 import org.braidner.libme.core.service.LibraryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,7 +24,7 @@ public class LibraryController {
     private LibraryService libraryService;
 
     @RequestMapping
-    public Library loadLibrary() {
+    public List<Content> loadLibrary() {
         return libraryService.loadLibrary();
     }
 

@@ -19,7 +19,7 @@ import java.util.List;
 @Service
 public class LibraryService {
 
-    @Autowired
+//    @Autowired
     private Authentication authentication;
 
     @Autowired

@@ -56,11 +56,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 @font-face {
   font-family: Roboto-Regular;
-  src: url("../lib/font/Roboto/Roboto-Regular.ttf");
+  src: url("../lib/font/Roboto/Roboto-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: Roboto-Medium;
-  src: url("../lib/font/Roboto/Roboto-Medium.ttf");
+  src: url("../lib/font/Roboto/Roboto-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: Roboto-Light;
+  src: url("../lib/font/Roboto/Roboto-Light.ttf") format("truetype");
 }
 *, *:after, *:before {
   -moz-box-sizing: border-box;
@@ -74,7 +78,7 @@ body {
   background: #1A2930;
   font-size: 20px;
   line-height: 24px;
-  font-family: "Roboto-Regular", serif;
+  font-family: "Roboto-Light", serif;
   height: auto;
 }
 

@@ -12,12 +12,17 @@ $container-padding: 10%;
 
 @font-face {
   font-family: Roboto-Regular;
-  src: url('../lib/font/Roboto/Roboto-Regular.ttf');
+  src: url('../lib/font/Roboto/Roboto-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: Roboto-Medium;
-  src: url('../lib/font/Roboto/Roboto-Medium.ttf');
+  src: url('../lib/font/Roboto/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Roboto-Light;
+  src: url('../lib/font/Roboto/Roboto-Light.ttf') format('truetype');
 }
 
 @mixin material-shadow {
@@ -34,6 +39,6 @@ body {
   background: $background-color;
   font-size: $font-size;
   line-height: 24px;
-  font-family: "Roboto-Regular", serif;
+  font-family: "Roboto-Light", serif;
   height: auto;
 }
