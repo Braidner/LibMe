@@ -12,6 +12,7 @@
         'ContentModule',
         'ContentCardModule',
         'ItemModule',
+        'UploadModule',
         'RecentModule'
     ])
         .config(RouteConfig)

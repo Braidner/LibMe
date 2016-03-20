@@ -11,7 +11,7 @@ import java.util.List;
  * @author kuznetsovne/ 14.03.2016.
  */
 @Repository
-public interface ContentRepository extends MongoRepository <Content, String> {
+public interface ContentRepository extends MongoRepository<Content, String> {
     List<Content> findByType(String type);
     List<Content> findByName(String name);
     List<Content> findByOwner(User owner);

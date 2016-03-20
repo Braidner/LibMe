@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Date: 05/03/2016
  * Time: 22:43
  */
-@Document(collection = "Documents")
+@Document(collection = "Settings")
 public class Setting {
 
     @Id private String id;

@@ -1,15 +1,21 @@
 package org.braidner.libme.core.model;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created by goodl on 2/26/2016.
  */
-@Document(collection = "Content")
+@JsonTypeInfo(use=JsonTypeInfo.Id.NAME, include=JsonTypeInfo.As.PROPERTY, property="type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value=Book.class, name="book"),
+        @JsonSubTypes.Type(value=Serial.class, name="serial"),
+        @JsonSubTypes.Type(value=Film.class, name="film")
+})
 public class Content {
 
-    @Id protected String id;
+    @Id private String id;
     private String type;
     protected String name;
     protected String poster;
