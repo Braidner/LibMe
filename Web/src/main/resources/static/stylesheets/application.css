@@ -199,6 +199,11 @@ a {
   margin-bottom: 20px;
 }
 
+.video-js .vjs-big-play-button {
+  top: 40% !important;
+  left: 40% !important;
+}
+
 .content-card {
   padding-left: 10%;
   padding-right: 10%;

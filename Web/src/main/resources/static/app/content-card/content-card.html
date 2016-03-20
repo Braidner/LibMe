@@ -2,7 +2,7 @@
     <h4>Главная - Фильмы - Омерзительная восьмерка (Нажна ли?)</h4>
     <div class="info">
         <div class="content-player">
-            <div class="player" background="http://st-im.kinopoisk.ru/im/kadr/2/7/3/kinopoisk.ru-Zootopia-2733682.jpg"></div>
+            <div id="player"></div>
             <div class="buttons">
                 <span class="download">Скачать</span>
             </div>
@@ -10,9 +10,21 @@
         <div class="content-info">
             <div class="movie-name">Зверополис</div>
             <div class="short-details">CША / 2015 / 187 мин. / DVDScr / 16+</div>
-            <div class="description">Добро пожаловать в Зверополис — современный город, населенный самыми разными животными, от огромных слонов до крошечных мышек. Зверополис разделен на районы, полностью повторяющие естественную среду обитания разных жителей — здесь есть и элитный район Площадь Сахары и неприветливый Тундратаун. </div>
+            <div class="description">Добро пожаловать в Зверополис — современный город, населенный самыми разными
+                животными, от огромных слонов до крошечных мышек. Зверополис разделен на районы, полностью повторяющие
+                естественную среду обитания разных жителей — здесь есть и элитный район Площадь Сахары и неприветливый
+                Тундратаун.
+            </div>
             <div class="info-types">
             </div>
         </div>
     </div>
 </div>
+<script>
+    var player = new Clappr.Player({
+        source: "/video/stream.m3u8",
+//        baseUrl: "http://example.com/assets/clappr",
+        parentId: "#player",
+        poster: "https://i.ytimg.com/vi/hIMCJNAcuJE/maxresdefault.jpg"
+    });
+</script>

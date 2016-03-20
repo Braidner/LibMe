@@ -24,6 +24,7 @@
     "gulp-sourcemaps": "latest",
     "gulp-ng-annotate": "latest",
     "gulp-compass": "latest",
+    "clappr": "latest",
     "gulp-clean-css": "latest"
   },
   "bugs": {
