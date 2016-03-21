@@ -66,11 +66,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: Roboto-Light;
   src: url("../lib/font/Roboto/Roboto-Light.ttf") format("truetype");
 }
-*, *:after, *:before {
+* {
+  color: white;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  color: white;
+}
+*:after, *:hover {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -100,6 +105,12 @@ nav {
 nav #logo {
   line-height: 50px;
 }
+nav .active-menu a {
+  color: #F7CE40;
+}
+nav .active-menu i {
+  color: #F7CE40;
+}
 nav menu ul {
   width: 100%;
   display: flex;
@@ -125,9 +136,6 @@ nav menu ul li a {
   width: 100%;
   height: 100%;
   transition: color .28s ease;
-}
-nav menu ul li.active-menu a {
-  color: #F7CE40;
 }
 nav menu ul .menu-indicator {
   position: absolute;

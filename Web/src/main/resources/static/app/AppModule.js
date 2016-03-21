@@ -13,6 +13,7 @@
         'ContentCardModule',
         'ItemModule',
         'UploadModule',
+        'ProfileModule',
         'RecentModule'
     ])
         .config(RouteConfig)
@@ -74,7 +75,7 @@
         function selectTab(tab) {
             var selectedTab;
             var indicator = $('.menu-indicator');
-            var index = $('.active-menu').index();
+            var index = $('li.active-menu').index();
 
             selectedTab = $scope.tabs[tab.index];
             if (index > tab.index) {

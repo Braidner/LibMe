@@ -37,8 +37,8 @@
     </menu>
 
     <div class="settings">
-        <div><a href="/upload"><img src="/lib/image/person-outline.svg"></a></div>
-        <div><a href="#"><i class="fa fa-search"></i></a></div>
+        <div ng-class="{'active-menu': activeTab === '/profile'}"><a ng-href="/profile"><i class="fa fa-user"></i></a></div>
+        <div><a ng-href="/upload"><i class="fa fa-search"></i></a></div>
     </div>
 </nav>
 
