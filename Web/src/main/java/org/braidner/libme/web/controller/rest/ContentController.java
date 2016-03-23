@@ -31,8 +31,9 @@ public class ContentController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public void searchContent(@Param("name") String name) {
+    public HttpStatus searchContent(@Param("name") String name) {
         System.out.println("search for content with param: " + name);
+        return HttpStatus.ACCEPTED;
     }
 
     @RequestMapping(method = RequestMethod.POST)

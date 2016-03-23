@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.util.List;
 
@@ -29,6 +31,9 @@ public class AppConfig implements CommandLineRunner {
     @Autowired
     private TorrentService torrentService;
 
+    @Autowired
+    private Tracker tracker;
+
 
     private static Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
@@ -42,9 +47,17 @@ public class AppConfig implements CommandLineRunner {
 
         List<TorrentClient> torrentClients = torrentService.initTorrentManager();
 
-        Tracker tracker = new Tracker(InetAddress.getLocalHost());
         torrentClients.parallelStream().forEach(torrentClient -> tracker.announce(torrentClient.getTrackedTorrent()));
         tracker.start();
+    }
 
+    @Bean
+    public Tracker tracker() {
+        try {
+            return new Tracker(InetAddress.getLocalHost());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
