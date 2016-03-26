@@ -27,7 +27,26 @@
         var linker = function (scope, element, attr) {
             
             var loadCarousel = function () {
-                element.owlCarousel({items: 6, itemsDesktop: [1200, 6]});
+                element.owlCarousel(
+                    {
+                        loop:false,
+                        nav:false,
+                        responsive:{
+                            1200:{
+                                items:6
+                            },
+                            992:{
+                                items:4
+                            },
+                            768:{
+                                items:3
+                            },
+                            479:{
+                                items:2
+                            }
+                        }
+                    }
+                );
             };
 
             scope.$watchCollection(attr.owlCarousel, function () {

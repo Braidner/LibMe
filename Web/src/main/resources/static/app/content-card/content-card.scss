@@ -3,71 +3,44 @@
 $half-width: 590px;
 $background-card: rgba(38, 50, 56, 100);
 
-.video-js {
-  .vjs-big-play-button {
-    top: 40% !important;
-    left: 40% !important;
-  }
-}
-
 .content-card {
-  //padding-left: $container-padding;
-  //padding-right: $container-padding;
-  //background: linear-gradient(to top, #000000, #191C1D);
-  height: 631px;
+  padding-top: 15px;
 
-  h4 {
-    font-size: 16px;
-    color: $font-gray;
-    padding-top: 16px;
+  &::after {
+    content: '';
+    background: url("http://cdn.shazoo.ru/136056_4ODSJsX9dy_head.jpg") no-repeat center center, linear-gradient(to top, #000000, #7a8485);
+    background-size: cover;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    height: 631px;
+    width: 100%;
   }
 
-  .info {
-    padding-top: 15px;
-    @include display-flex();
-    flex-flow: row nowrap;
-    justify-content: space-between;
+  .player-container {
 
-    &::after {
-      content: '';
-      background: url("http://cdn.shazoo.ru/136056_4ODSJsX9dy_head.jpg") no-repeat center center, linear-gradient(to top, #000000, #7a8485);
-      background-size: cover;
-      opacity: 0.3;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      position: absolute;
-      z-index: -1;
-      height: 631px;
+  }
+
+  .info-container {
+    width: $half-width;
+    .movie-name {
+      font-size: 30px;
+      font-family: "Roboto-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      margin-bottom: 20px;
     }
 
-    .content-player {
-      width: $half-width;
-      margin-right: 40px;
-      .player {
-        width: 100%;
-        height: 352px;
-      }
+    .short-details {
+      font-size: 16px;
+      color: $font-gray;
+      margin-bottom: 40px;
     }
 
-    .content-info {
-      width: $half-width;
-      .movie-name {
-        font-size: 30px;
-        font-family: "Roboto-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-        margin-bottom: 20px;
-      }
-
-      .short-details {
-        font-size: 16px;
-        color: $font-gray;
-        margin-bottom: 40px;
-      }
-
-      .description {
-        font-size: 20px;
-      }
+    .description {
+      font-size: 20px;
     }
   }
 }

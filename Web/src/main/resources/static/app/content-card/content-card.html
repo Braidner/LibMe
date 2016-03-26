@@ -1,13 +1,12 @@
-<div class="content-card">
-    <h4>Главная - Фильмы - Омерзительная восьмерка (Нажна ли?)</h4>
-    <div class="info">
-        <div class="content-player">
+<div class="content-card content container center-block">
+    <div class="row">
+        <div class="player-container col-md-6">
             <div id="player"></div>
             <div class="buttons">
                 <span class="download">Скачать</span>
             </div>
         </div>
-        <div class="content-info">
+        <div class="info-container col-md-6">
             <div class="movie-name">Зверополис</div>
             <div class="short-details">CША / 2015 / 187 мин. / DVDScr / 16+</div>
             <div class="description">Добро пожаловать в Зверополис — современный город, населенный самыми разными
@@ -25,6 +24,8 @@
         source: "/video/stream.m3u8",
 //        baseUrl: "http://example.com/assets/clappr",
         parentId: "#player",
+        height: '321px',
+        width: 'auto',
         poster: "https://i.ytimg.com/vi/hIMCJNAcuJE/maxresdefault.jpg"
     });
 </script>

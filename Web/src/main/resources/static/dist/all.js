@@ -190,33 +190,6 @@
 })();
 
 /**
- * Created by goodl on 3/9/2016.
- */
-(function () {
-    angular.module('ItemModule', [])
-        .directive('contentItem', contentItem);
-
-    contentItem.$inject = ['$location'];
-    function contentItem($location) {
-        "ngInject";
-        function linker(scope, element, attr) {
-            element.on('click', function (event) {
-                $location.path("/" + angular.lowercase(scope.item.type) +"/" + scope.item.id);
-                scope.$apply();
-            });
-        }
-        return {
-            link: linker,
-            restrict: 'E',
-            replace: true,
-            scope: {
-                item: '='
-            },
-            templateUrl: '/app/item/item.html'
-        };
-    }
-})();
-/**
  * Created by goodl on 3/13/2016.
  */
 (function () {
@@ -246,6 +219,33 @@
         "ngInject";
     }
     
+})();
+/**
+ * Created by goodl on 3/9/2016.
+ */
+(function () {
+    angular.module('ItemModule', [])
+        .directive('contentItem', contentItem);
+
+    contentItem.$inject = ['$location'];
+    function contentItem($location) {
+        "ngInject";
+        function linker(scope, element, attr) {
+            element.on('click', function (event) {
+                $location.path("/" + angular.lowercase(scope.item.type) +"/" + scope.item.id);
+                scope.$apply();
+            });
+        }
+        return {
+            link: linker,
+            restrict: 'E',
+            replace: true,
+            scope: {
+                item: '='
+            },
+            templateUrl: '/app/item/item.html'
+        };
+    }
 })();
 /**
  * Created by goodl on 3/21/2016.
@@ -310,7 +310,26 @@
         var linker = function (scope, element, attr) {
             
             var loadCarousel = function () {
-                element.owlCarousel({items: 6, itemsDesktop: [1200, 6]});
+                element.owlCarousel(
+                    {
+                        loop:false,
+                        nav:false,
+                        responsive:{
+                            1200:{
+                                items:6
+                            },
+                            992:{
+                                items:4
+                            },
+                            768:{
+                                items:3
+                            },
+                            479:{
+                                items:2
+                            }
+                        }
+                    }
+                );
             };
 
             scope.$watchCollection(attr.owlCarousel, function () {

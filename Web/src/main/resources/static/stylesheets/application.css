@@ -199,31 +199,31 @@ a {
   z-index: 1030;
 }
 
-.content {
-  width: 1200px;
+@media (max-width: 767px) {
+  .content {
+    width: auto;
+  }
 }
-
-.video-js .vjs-big-play-button {
-  top: 40% !important;
-  left: 40% !important;
+@media (min-width: 768px) {
+  .content {
+    width: 654px;
+  }
+}
+@media (min-width: 992px) {
+  .content {
+    width: 790px;
+  }
+}
+@media (min-width: 1200px) {
+  .content {
+    width: 1200px;
+  }
 }
 
 .content-card {
-  height: 631px;
-}
-.content-card h4 {
-  font-size: 16px;
-  color: #C4C4C0;
-  padding-top: 16px;
-}
-.content-card .info {
   padding-top: 15px;
-  display: -webkit-flex;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
 }
-.content-card .info::after {
+.content-card::after {
   content: '';
   background: url("http://cdn.shazoo.ru/136056_4ODSJsX9dy_head.jpg") no-repeat center center, linear-gradient(to top, #000000, #7a8485);
   background-size: cover;
@@ -235,29 +235,22 @@ a {
   position: absolute;
   z-index: -1;
   height: 631px;
-}
-.content-card .info .content-player {
-  width: 590px;
-  margin-right: 40px;
-}
-.content-card .info .content-player .player {
   width: 100%;
-  height: 352px;
 }
-.content-card .info .content-info {
+.content-card .info-container {
   width: 590px;
 }
-.content-card .info .content-info .movie-name {
+.content-card .info-container .movie-name {
   font-size: 30px;
   font-family: "Roboto-Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-bottom: 20px;
 }
-.content-card .info .content-info .short-details {
+.content-card .info-container .short-details {
   font-size: 16px;
   color: #C4C4C0;
   margin-bottom: 40px;
 }
-.content-card .info .content-info .description {
+.content-card .info-container .description {
   font-size: 20px;
 }
 
