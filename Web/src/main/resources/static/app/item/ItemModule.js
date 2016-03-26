@@ -10,8 +10,7 @@
         "ngInject";
         function linker(scope, element, attr) {
             element.on('click', function (event) {
-                console.log("/" + scope.item.type +"/" + scope.item.id);
-                $location.path("/" + scope.item.type +"/" + scope.item.id);
+                $location.path("/" + angular.lowercase(scope.item.type) +"/" + scope.item.id);
                 scope.$apply();
             });
         }
