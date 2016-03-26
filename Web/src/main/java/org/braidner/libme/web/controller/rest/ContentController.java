@@ -31,9 +31,11 @@ public class ContentController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public HttpStatus searchContent(@Param("name") String name) {
-        System.out.println("search for content with param: " + name);
-        return HttpStatus.ACCEPTED;
+    public List<Content> searchContent(@Param("name") String name, @Param("type") String type) {
+        if (type != null) {
+            return libraryService.loadContent(type);
+        }
+        return libraryService.loadLibrary();
     }
 
     @RequestMapping(method = RequestMethod.POST)

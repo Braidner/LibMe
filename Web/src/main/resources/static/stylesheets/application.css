@@ -66,6 +66,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-family: Roboto-Light;
   src: url("../lib/font/Roboto/Roboto-Light.ttf") format("truetype");
 }
+a {
+  text-decoration: none !important;
+}
+a:hover {
+  color: #F7CE40;
+}
+
 * {
   color: white;
   -moz-box-sizing: border-box;
@@ -193,18 +200,7 @@ a {
 }
 
 .content {
-  padding-left: 10%;
-  padding-right: 10%;
-  display: -webkit-flex;
-  display: flex;
-  align-items: baseline;
-  align-content: flex-start;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-}
-.content .content-item {
-  margin-right: 3%;
-  margin-bottom: 20px;
+  width: 1200px;
 }
 
 .video-js .vjs-big-play-button {
@@ -213,8 +209,6 @@ a {
 }
 
 .content-card {
-  padding-left: 10%;
-  padding-right: 10%;
   height: 631px;
 }
 .content-card h4 {
@@ -270,8 +264,6 @@ a {
 .recent {
   background: #0B1612;
   height: 413px;
-  padding-left: 10%;
-  padding-right: 10%;
   overflow: hidden;
 }
 .recent h3 {
@@ -299,8 +291,7 @@ a {
 
 .content-item {
   padding-top: 20px;
-  width: 170px;
-  height: auto;
+  height: 345px;
 }
 .content-item .poster {
   width: 170px;

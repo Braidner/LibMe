@@ -24,6 +24,10 @@ public class LibraryService extends BaseService {
         return contentRepository.findByOwner(getCurrentUser());
     }
 
+    public List<Content> loadContent(String type) {
+        return contentRepository.findByType(type);
+    }
+
     public Content upload(Content content) {
         content.setOwner(getCurrentUser());
         Library library = new Library();

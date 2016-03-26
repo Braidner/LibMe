@@ -1,17 +1,21 @@
 @import "../base";
 
+//.content {
+//  padding-left: $container-padding;
+//  padding-right: $container-padding;
+//
+//  @include display-flex();
+//  align-items: baseline;
+//  align-content: flex-start;
+//  flex-flow: row wrap;
+//  justify-content: flex-start;
+//
+//  .content-item {
+//    margin-right: 3%;
+//    margin-bottom: 20px;
+//  }
+//}
+
 .content {
-  padding-left: $container-padding;
-  padding-right: $container-padding;
-
-  @include display-flex();
-  align-items: baseline;
-  align-content: flex-start;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-
-  .content-item {
-    margin-right: 3%;
-    margin-bottom: 20px;
-  }
+  width: 1200px;
 }

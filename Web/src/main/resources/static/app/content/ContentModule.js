@@ -23,57 +23,21 @@
         });
     }
 
-    function AllContentCtrl($scope) {
+    AllContentCtrl.$inject = ['$scope', 'ContentService'];
+    function AllContentCtrl($scope, ContentService) {
         "ngInject";
-        $scope.content = [
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {type: 'serial', id: 1, name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {type: 'film', id: 1, name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {type: 'film', id: 1, name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
-        ];
+        $scope.content = ContentService.findContent();
     }
 
-    function FilmContentCtrl($scope) {
+    FilmContentCtrl.$inject = ['$scope', 'ContentService'];
+    function FilmContentCtrl($scope, ContentService) {
         "ngInject";
-        $scope.content = [
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {type: 'serial', id: 1, name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {type: 'film', id: 1, name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {type: 'film', id: 1, name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
-        ];
+        $scope.content = ContentService.findContent(null, 'Film');
     }
 
-    function SerialContentCtrl($scope) {
+    SerialContentCtrl.$inject = ['$scope', 'ContentService'];
+    function SerialContentCtrl($scope, ContentService) {
         "ngInject";
-        $scope.content = [
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            // {type: 'serial', id: 1, name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            // {type: 'film', id: 1, name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            // {type: 'film', id: 1, name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            // {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'film', id: 1, name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
-        ];
+        $scope.content = ContentService.findContent(null, 'Serial');
     }
 })();

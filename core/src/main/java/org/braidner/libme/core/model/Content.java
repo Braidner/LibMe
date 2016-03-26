@@ -16,7 +16,7 @@ import org.springframework.data.annotation.Id;
 public class Content {
 
     @Id private String id;
-    private String type;
+    private String type = getClass().getSimpleName();
     protected String name;
     protected String poster;
     protected User owner;
@@ -30,7 +30,6 @@ public class Content {
     }
 
     public String getType() {
-        if (type == null) type = getClass().getName();
         return type;
     }
 
