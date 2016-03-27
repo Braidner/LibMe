@@ -110,6 +110,9 @@ input {
 .upload-container .row {
   padding-bottom: 50px;
 }
+.upload-container .input-video input {
+  height: 80px;
+}
 
 nav {
   display: flex;
