@@ -190,6 +190,33 @@
 })();
 
 /**
+ * Created by goodl on 3/9/2016.
+ */
+(function () {
+    angular.module('ItemModule', [])
+        .directive('contentItem', contentItem);
+
+    contentItem.$inject = ['$location'];
+    function contentItem($location) {
+        "ngInject";
+        function linker(scope, element, attr) {
+            element.on('click', function (event) {
+                $location.path("/" + angular.lowercase(scope.item.type) +"/" + scope.item.id);
+                scope.$apply();
+            });
+        }
+        return {
+            link: linker,
+            restrict: 'E',
+            replace: true,
+            scope: {
+                item: '='
+            },
+            templateUrl: '/app/item/item.html'
+        };
+    }
+})();
+/**
  * Created by goodl on 3/13/2016.
  */
 (function () {
@@ -219,33 +246,6 @@
         "ngInject";
     }
     
-})();
-/**
- * Created by goodl on 3/9/2016.
- */
-(function () {
-    angular.module('ItemModule', [])
-        .directive('contentItem', contentItem);
-
-    contentItem.$inject = ['$location'];
-    function contentItem($location) {
-        "ngInject";
-        function linker(scope, element, attr) {
-            element.on('click', function (event) {
-                $location.path("/" + angular.lowercase(scope.item.type) +"/" + scope.item.id);
-                scope.$apply();
-            });
-        }
-        return {
-            link: linker,
-            restrict: 'E',
-            replace: true,
-            scope: {
-                item: '='
-            },
-            templateUrl: '/app/item/item.html'
-        };
-    }
 })();
 /**
  * Created by goodl on 3/21/2016.
@@ -376,9 +376,9 @@
             {type: 'serial',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
         ];
 
-        angular.forEach($scope.content, function (content) {
-            ContentService.createContent(content);
-        });
+        // angular.forEach($scope.content, function (content) {
+        //     ContentService.createContent(content);
+        // });
     }
 
 })();

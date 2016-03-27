@@ -94,9 +94,21 @@ body {
   height: auto;
 }
 
-.container {
-  width: 900px;
-  height: auto;
+input {
+  border: 1px solid darkgray;
+  width: 100%;
+  float: left;
+  background: 0 0;
+  height: 50px;
+  padding: 1em;
+}
+
+.upload-container h2 {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+.upload-container .row {
+  padding-bottom: 50px;
 }
 
 nav {

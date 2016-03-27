@@ -29,9 +29,9 @@
             {type: 'serial',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
         ];
 
-        angular.forEach($scope.content, function (content) {
-            ContentService.createContent(content);
-        });
+        // angular.forEach($scope.content, function (content) {
+        //     ContentService.createContent(content);
+        // });
     }
 
 })();
