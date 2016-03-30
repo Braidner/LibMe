@@ -15,7 +15,8 @@ $name-height: 48px;
     width: $item-width;
     height: $poster-height;
     margin-bottom: 10px;
-    -webkit-transition: box-shadow .2s, transform .2s, opacity .2s;
+    //-webkit-transition: box-shadow .2s, transform .2s, opacity .2s;
+    @include transition(0.3s ease-in-out);
   }
 
   .name {
@@ -33,7 +34,8 @@ $name-height: 48px;
   &:hover {
     cursor: pointer;
     .poster {
-      @include transform(translate(0, -7px));
+      //@include transform(translate(0, -7px));
+      @include box-shadow(0 0 0 6px $select-color,0 0 0 7px $select-color)
     }
   }
 }
