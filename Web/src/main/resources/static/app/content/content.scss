@@ -1,17 +1,27 @@
 @import "../base";
 
+$phone: "(max-width: 767px)";
+$tablet: "(min-width: 768px)";
+$desktop: "(min-width: 992px)";
+$large-desktop: "(min-width: 1200px)";
+$extra-large-desktop: "(min-width: 1600px)";
+
+
+
 .content {
-  padding-left: $container-padding;
-  padding-right: $container-padding;
-
-  @include display-flex();
-  align-items: baseline;
-  align-content: flex-start;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-
-  .content-item {
-    margin-right: 3%;
-    margin-bottom: 20px;
+  @media #{$phone} {
+    width: auto;
   }
+  @media #{$tablet} {
+    width: 654px;
+  }
+  @media #{$desktop} {
+    width: 790px;
+  }
+  @media #{$large-desktop} {
+    width: 1200px;
+  }
+  //@media #{$extra-large-desktop} {
+  //  width: 1500px;
+  //}
 }

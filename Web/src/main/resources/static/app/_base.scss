@@ -29,6 +29,13 @@ $container-padding: 10%;
   box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.16), 5px 5px 5px 5px rgba(0,0,0,0.12);
 }
 
+a {
+  &:hover {
+    color: $select-color;
+  }
+  text-decoration: none !important;
+}
+
 * {
   color: $font-color;
   @include box-sizing(border-box);
