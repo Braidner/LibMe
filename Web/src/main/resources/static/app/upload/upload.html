@@ -1,12 +1,22 @@
 <div class="container content upload-container">
     <h2 class="text-center">Добавить описание к фильму</h2>
     <div class="row">
-        <div class="input-name col-md-offset-2 col-md-4"><input name="name" placeholder="Название"></div>
+        <div class="input-name col-md-offset-2 col-md-4"><input name="name" placeholder="Название фильма"></div>
         <div class="input-genre col-md-4"><input name="genre" placeholder="Жанр"></div>
     </div>
 
     <div class="row">
-        <div class="input-video col-md-offset-2 col-md-8"><input name="video" class="text-center" placeholder="Добавить видео"></div>
+        <div class="col-md-offset-2 col-md-8">
+            <div class="input-video text-center">
+                <div class="input-content">
+                    <div class="empty">
+                        <i class="fa fa-video-camera"></i> <br>
+                        <span>Добавить видео</span>
+                    </div>
+                </div>
+            </div>
+            <input name="video" style="display: none" class="text-center" placeholder="Добавить видео">
+        </div>
     </div>
 
     <div class="row">

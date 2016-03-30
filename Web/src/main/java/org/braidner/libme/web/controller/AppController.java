@@ -21,7 +21,7 @@ public class AppController {
     @Autowired
     private LibraryService libraryService;
 
-    @RequestMapping(value = {"film/*", "serial/*"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"film/*", "serial/*", "upload"}, method = RequestMethod.GET)
     public String index() {
         List<Content> contents = libraryService.loadLibrary();
         return "forward:/index.html";

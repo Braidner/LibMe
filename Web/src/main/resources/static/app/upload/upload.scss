@@ -1,3 +1,5 @@
+@import "../base";
+
 input {
   border: 1px solid darkgray;
   width: 100%;
@@ -17,7 +19,23 @@ input {
     padding-bottom: 50px;
   }
 
-  .input-video input {
+  .input-video {
     height: 80px;
+    border-top: 1px solid $select-color;
+    border-bottom: 1px solid $select-color;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    .empty {
+      i {
+        color: $select-color;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
   }
 }
