@@ -10,6 +10,7 @@
 
         //Modules
         'ContentModule',
+        'ControlsModule',
         'ContentCardModule',
         'ItemModule',
         'UploadModule',

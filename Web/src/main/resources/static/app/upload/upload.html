@@ -1,8 +1,14 @@
 <div class="container content upload-container">
     <h2 class="text-center">Добавить описание к фильму</h2>
+    <h3 class="text-center">Укажите ссыдку на фильм, который вы <br> хотите загрузить и ваши поля автоматически заполнятся <br> или сделайте это сами!</h3>
     <div class="row">
-        <div class="input-name col-md-offset-2 col-md-4"><input name="name" placeholder="Название фильма"></div>
-        <div class="input-genre col-md-4"><input name="genre" placeholder="Жанр"></div>
+        <lm-input class="col-md-offset-2 col-md-8" ng-model="genre">Добавить ссылку на кинопоиск<span class="yellow">*</span></lm-input>
+    </div>
+    <div class="row">
+        <!--<div class="input-name col-md-offset-2 col-md-4"><input name="name" placeholder="Название фильма"></div>-->
+        <!--<div class="input-genre col-md-4"><input name="genre" placeholder="Жанр"></div>-->
+        <lm-input class="col-md-offset-2 col-md-4" ng-model="name">Название фильма<span class="yellow">*</span></lm-input>
+        <lm-input class="col-md-4" ng-model="genre">Жанр<span class="yellow">*</span></lm-input>
     </div>
 
     <div class="row">
@@ -20,12 +26,12 @@
     </div>
 
     <div class="row">
-        <div class="input-name col-md-offset-2 col-md-4"><input name="year" placeholder="Год выпуска"></div>
-        <div class="input-genre col-md-4"><input name="Country" placeholder="Страна производитель"></div>
+        <lm-input class="col-md-offset-2 col-md-4" ng-model="genre">Год выпуска<span class="yellow">*</span></lm-input>
+        <lm-input class="col-md-4" ng-model="genre">Страна производитель<span class="yellow">*</span></lm-input>
     </div>
 
     <div class="row">
-        <div class="input-name col-md-offset-2 col-md-4"><input name="year" placeholder="Режисер"></div>
-        <div class="input-genre col-md-4"><input name="Country" placeholder="Актеры"></div>
+        <lm-input class="col-md-offset-2 col-md-4" ng-model="genre">Режисер<span class="yellow">*</span></lm-input>
+        <lm-input class="col-md-4" ng-model="genre">Актеры<span class="yellow">*</span></lm-input>
     </div>
 </div>

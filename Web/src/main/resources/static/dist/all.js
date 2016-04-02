@@ -10,6 +10,7 @@
 
         //Modules
         'ContentModule',
+        'ControlsModule',
         'ContentCardModule',
         'ItemModule',
         'UploadModule',
@@ -190,33 +191,6 @@
 })();
 
 /**
- * Created by goodl on 3/9/2016.
- */
-(function () {
-    angular.module('ItemModule', [])
-        .directive('contentItem', contentItem);
-
-    contentItem.$inject = ['$location'];
-    function contentItem($location) {
-        "ngInject";
-        function linker(scope, element, attr) {
-            element.on('click', function (event) {
-                $location.path("/" + angular.lowercase(scope.item.type) +"/" + scope.item.id);
-                scope.$apply();
-            });
-        }
-        return {
-            link: linker,
-            restrict: 'E',
-            replace: true,
-            scope: {
-                item: '='
-            },
-            templateUrl: '/app/item/item.html'
-        };
-    }
-})();
-/**
  * Created by goodl on 3/13/2016.
  */
 (function () {
@@ -246,6 +220,41 @@
         "ngInject";
     }
     
+})();
+/**
+ * Created by goodl on 4/2/2016.
+ */
+(function() {
+    "use strict";
+
+    angular.module('ControlsModule', ['control.input-control']);
+})();
+/**
+ * Created by goodl on 3/9/2016.
+ */
+(function () {
+    angular.module('ItemModule', [])
+        .directive('contentItem', contentItem);
+
+    contentItem.$inject = ['$location'];
+    function contentItem($location) {
+        "ngInject";
+        function linker(scope, element, attr) {
+            element.on('click', function (event) {
+                $location.path("/" + angular.lowercase(scope.item.type) +"/" + scope.item.id);
+                scope.$apply();
+            });
+        }
+        return {
+            link: linker,
+            restrict: 'E',
+            replace: true,
+            scope: {
+                item: '='
+            },
+            templateUrl: '/app/item/item.html'
+        };
+    }
 })();
 /**
  * Created by goodl on 3/21/2016.
@@ -280,6 +289,43 @@
         
     }
     
+})();
+/**
+ * Created by Braidner on 06/03/2016.
+ */
+(function () {
+    'use strict';
+
+    angular.module('UploadModule', ['ngResource']);
+    angular.module('UploadModule').config(RouteConfig);
+    angular.module('UploadModule').controller('UploadCtrl', UploadCtrl);
+
+    function RouteConfig($routeProvider) {
+        "ngInject";
+        $routeProvider.when('/upload', {
+            templateUrl: '/app/upload/upload.html',
+            controller: 'UploadCtrl'
+        });
+    }
+    
+
+    UploadCtrl.$inject = ['$scope', 'ContentService'];
+    function UploadCtrl($scope, ContentService) {
+        "ngInject";
+        $scope.content = [
+            {type: 'film',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
+            {type: 'serial',  name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
+            {type: 'serial', name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
+            {type: 'film',  name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
+            {type: 'film',  name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'},
+            {type: 'serial',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
+        ];
+
+        // angular.forEach($scope.content, function (content) {
+        //     ContentService.createContent(content);
+        // });
+    }
+
 })();
 /**
     * Created by Braidner
@@ -346,39 +392,26 @@
     });
 })();
 /**
- * Created by Braidner on 06/03/2016.
+ * Created by goodl on 4/2/2016.
  */
-(function () {
-    'use strict';
 
-    angular.module('UploadModule', ['ngResource']);
-    angular.module('UploadModule').config(RouteConfig);
-    angular.module('UploadModule').controller('UploadCtrl', UploadCtrl);
 
-    function RouteConfig($routeProvider) {
-        "ngInject";
-        $routeProvider.when('/upload', {
-            templateUrl: '/app/upload/upload.html',
-            controller: 'UploadCtrl'
-        });
-    }
-    
+angular.module('control.input-control', [])
+    .directive('lmInput', lmInput);
 
-    UploadCtrl.$inject = ['$scope', 'ContentService'];
-    function UploadCtrl($scope, ContentService) {
-        "ngInject";
-        $scope.content = [
-            {type: 'film',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'serial',  name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {type: 'serial', name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {type: 'film',  name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {type: 'film',  name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'},
-            {type: 'serial',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
-        ];
-
-        // angular.forEach($scope.content, function (content) {
-        //     ContentService.createContent(content);
-        // });
-    }
-
-})();
+function lmInput() {
+    return {
+        scope: {
+            bindModel:'=ngModel'
+        },
+        require: 'ngModel',
+        transclude: true,
+        'templateUrl': '/app/controll/input/input-control.html',
+        link: function (scope, elem, attr, ngModel) {
+            "use strict";
+            // elem.on('click', function () {
+            //     elem.addClass('lm-input-focused');
+            // });
+        }
+    };
+}
