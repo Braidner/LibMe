@@ -2,16 +2,27 @@
 @import "upload/upload";
 @import "compass/utilities/general/clearfix";
 
-$nav-background: #121F20;
+$nav-background: #0B1612;
 $nav-height: 80px;
 $select-bar-color: rgb(255, 82, 82);
 $number-of-tabs: 5;
 
 nav {
   display: flex;
+  &::before {
+    width: 100%;
+    height: $nav-height;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $background-color;
+    z-index: -1;
+    opacity: 0.5;
+  }
   align-items: center;
   justify-content: space-between;
-  background: $nav-background;
+  //background: $nav-background;
   height: $nav-height;
   @include box-shadow(0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23));
 
