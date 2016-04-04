@@ -10,6 +10,7 @@ import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.concurrent.TimeUnit;
 
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
  * Time: 20:25
  */
 @SpringBootApplication(scanBasePackages = "org.braidner.libme")
+@ActiveProfiles(profiles = {"development", "production"})
 public class WebConfig implements CommandLineRunner {
 
     private static Logger logger = LoggerFactory.getLogger(WebConfig.class);
@@ -37,7 +39,7 @@ public class WebConfig implements CommandLineRunner {
     public EmbeddedServletContainerFactory servletContainer() {
         TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
         String port = System.getProperty("server.port");
-        factory.setPort(Integer.parseInt(port != null ? port : "8080"));
+        factory.setPort(Integer.parseInt(port != null ? port : "8081"));
         factory.setSessionTimeout(10, TimeUnit.MINUTES);
         factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/notfound.html")); //TODO add 404 page
         return factory;
