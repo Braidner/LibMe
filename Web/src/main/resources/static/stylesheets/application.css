@@ -86,8 +86,7 @@ a:hover {
 }
 
 body {
-  padding-top: 80px;
-  background: linear-gradient(to bottom, #242b2f, #000000) no-repeat;
+  background-image: linear-gradient(to bottom, #263238, #212121);
   font-size: 20px;
   line-height: 24px;
   font-family: "Roboto-Light", serif;
@@ -150,6 +149,33 @@ ng-view > .container {
 }
 .upload-container .input-video .empty span {
   font-size: 14px;
+}
+
+.fast-upload {
+  padding-top: 110px;
+  padding-bottom: 70px;
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.fast-upload:before {
+  width: 100%;
+  height: 100%;
+  content: '';
+  left: 0;
+  right: 0;
+  display: block;
+  background: url("http://www.mwallpapershd.com/wp-content/uploads/2016/03/deadpool_wallpapers_gallery.jpg");
+  position: relative;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  z-index: -1;
+}
+.fast-upload .container {
+  z-index: 9999;
 }
 
 nav {
@@ -321,7 +347,7 @@ a {
 }
 
 .recent {
-  background: #0B1612;
+  background: #1a1b1d;
   height: 413px;
   overflow: hidden;
 }

@@ -38,6 +38,7 @@
     </div>
 </nav>
 
+<div class="fast-upload" ng-if="activeTab === '/'" ng-include="'app/upload/fast-upload.html'" ng-controller="FastUploadCtrl"></div>
 <div class="recent" ng-if="activeTab === '/'" ng-include="'app/recent/recent.html'" ng-controller="RecentCtrl"></div>
 
 <ng-view>Loading angular module</ng-view>

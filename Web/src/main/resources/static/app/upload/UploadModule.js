@@ -7,6 +7,7 @@
     angular.module('UploadModule', ['ngResource']);
     angular.module('UploadModule').config(RouteConfig);
     angular.module('UploadModule').controller('UploadCtrl', UploadCtrl);
+    angular.module('UploadModule').controller('FastUploadCtrl', FastUploadCtrl);
 
     function RouteConfig($routeProvider) {
         "ngInject";
@@ -32,6 +33,11 @@
         // angular.forEach($scope.content, function (content) {
         //     ContentService.createContent(content);
         // });
+    }
+
+
+    function FastUploadCtrl($scope) {
+        
     }
 
 })();
