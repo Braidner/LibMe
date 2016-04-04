@@ -18,9 +18,12 @@ nav {
     left: 0;
     background: $background-color;
     z-index: -1;
-    opacity: 0.5;
+    opacity: 0.95;
   }
   align-items: center;
+  img {
+    vertical-align: middle !important;
+  }
   justify-content: space-between;
   //background: $nav-background;
   height: $nav-height;
