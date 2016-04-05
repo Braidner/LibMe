@@ -70,5 +70,6 @@ body {
   background-color: $select-color;
 }
 ng-view > .container {
+  padding-top: 80px;
   padding-bottom: 81px;
 }
