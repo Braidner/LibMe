@@ -1,7 +1,7 @@
 package org.braidner.libme.web.controller.rest;
 
 import org.braidner.libme.core.model.Content;
-import org.braidner.libme.web.service.KinopoiskService;
+import org.braidner.libme.web.service.KinopoisService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class KinopoiskController {
     private final static Logger LOG = LoggerFactory.getLogger(KinopoiskController.class);
 
     @Autowired
-    private KinopoiskService kinopoiskService;
+    private KinopoisService kinopoiskService;
 
     @RequestMapping(method = RequestMethod.GET)
     public Content parseKinopoisk(@RequestParam("url") String url) {
