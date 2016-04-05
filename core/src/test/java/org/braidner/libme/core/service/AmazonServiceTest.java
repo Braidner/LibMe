@@ -8,10 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 
+import static org.junit.Assert.assertTrue;
+
 /**
  * @author KuznetsovNE/ 05.04.2016.
  */
 public class AmazonServiceTest extends CoreTestConfig {
+    private static final String TEST_FILE_KEY = "test_key";
 
     @Autowired
     private AmazonService amazonService;
@@ -29,6 +32,7 @@ public class AmazonServiceTest extends CoreTestConfig {
     @Test
     public void upload() throws Exception {
         File file = new File("C:\\123.htm");
-        amazonService.upload(file);
+        assertTrue("Upload to aws failed", amazonService.upload(TEST_FILE_KEY, file));
+        assertTrue("Delete from aws failed", amazonService.delete(TEST_FILE_KEY));
     }
 }
