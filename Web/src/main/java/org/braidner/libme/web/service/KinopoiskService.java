@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
  * @author KuznetsovNE/ 31.03.2016.
  */
 @Service
-public class KinopoisService {
+public class KinopoiskService {
     private static final Pattern KINO_POISK_ID_PATTERN = Pattern.compile("/film/([0-9]*)/");
 
     @Autowired
