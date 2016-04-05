@@ -399,7 +399,27 @@ lm-input input {
   float: left;
 }
 lm-input .lm-placeholder {
-  margin-bottom: 3px;
-  font-size: 20px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+lm-url-parser {
+  position: relative;
+  vertical-align: middle;
+}
+lm-url-parser input {
+  padding: 1em;
+  border: solid 2px #ffffff;
+  display: block;
+  background: 0 0;
+  line-height: 26px;
+  height: 50px;
+  width: 100%;
+  float: left;
+}
+lm-url-parser .lm-placeholder {
+  margin-bottom: 5px;
+  font-size: 16px;
   letter-spacing: 1px;
 }

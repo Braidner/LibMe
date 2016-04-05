@@ -1,11 +1,11 @@
 @import "../../base";
-lm-input {
+lm-url-parser {
   position: relative;
   vertical-align: middle;
 
   input {
     padding: 1em;
-    border: 1px solid darkgray;
+    border: solid 2px #ffffff;
     display: block;
     background: 0 0;
     line-height: 26px;

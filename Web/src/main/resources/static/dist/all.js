@@ -227,7 +227,7 @@
 (function() {
     "use strict";
 
-    angular.module('ControlsModule', ['control.input-control', 'control.kinopoisk-control']);
+    angular.module('ControlsModule', ['control.input-control', 'control.parser']);
 })();
 /**
  * Created by goodl on 3/9/2016.
@@ -255,6 +255,40 @@
             templateUrl: '/app/item/item.html'
         };
     }
+})();
+/**
+ * Created by goodl on 3/21/2016.
+ */
+(function () {
+    'use strict';
+    
+    angular.module('ProfileModule', []);
+    angular.module('ProfileModule').config(RouteConfig);
+    angular.module('ProfileModule').run(ProfileConfig);
+    angular.module('ProfileModule').controller('ProfileCtrl', ProfileCtrl);
+
+    function RouteConfig($routeProvider) {
+        "ngInject";
+        $routeProvider.when('/profile', {
+            templateUrl: '/app/profile/profile.html',
+            controller: 'ProfileCtrl'
+        });
+    }
+    
+    function ProfileConfig($rootScope) {
+        $rootScope.profile = {login: "Braidner", perms: ['user:edit:profile']};
+        $rootScope.hasPermission = hasPermission;
+
+        function hasPermission(perm) {
+            return profile.perms.indexOf(perm) > -1;
+        }
+    }
+
+    function ProfileCtrl($scope) {
+        'ngInject';
+        
+    }
+    
 })();
 /**
     * Created by Braidner
@@ -321,40 +355,6 @@
     });
 })();
 /**
- * Created by goodl on 3/21/2016.
- */
-(function () {
-    'use strict';
-    
-    angular.module('ProfileModule', []);
-    angular.module('ProfileModule').config(RouteConfig);
-    angular.module('ProfileModule').run(ProfileConfig);
-    angular.module('ProfileModule').controller('ProfileCtrl', ProfileCtrl);
-
-    function RouteConfig($routeProvider) {
-        "ngInject";
-        $routeProvider.when('/profile', {
-            templateUrl: '/app/profile/profile.html',
-            controller: 'ProfileCtrl'
-        });
-    }
-    
-    function ProfileConfig($rootScope) {
-        $rootScope.profile = {login: "Braidner", perms: ['user:edit:profile']};
-        $rootScope.hasPermission = hasPermission;
-
-        function hasPermission(perm) {
-            return profile.perms.indexOf(perm) > -1;
-        }
-    }
-
-    function ProfileCtrl($scope) {
-        'ngInject';
-        
-    }
-    
-})();
-/**
  * Created by Braidner on 06/03/2016.
  */
 (function () {
@@ -412,7 +412,7 @@ function lmInput() {
         },
         require: 'ngModel',
         transclude: true,
-        'templateUrl': '/app/controll/input/input-control.html',
+        'templateUrl': '/app/control/input/input-control.html',
         link: function (scope, elem, attr, ngModel) {
             "use strict";
             // elem.on('click', function () {
@@ -425,10 +425,25 @@ function lmInput() {
  * Created by KuznetsovNE on 04.04.2016.
  */
 (function () {
-    angular.module('control.kinopoisk-control', []);
+    angular.module('control.parser', []);
 
-    angular.module('ControlsModule').directive('lm-kinopoisk', function () {
-        
-    });
+    angular.module('ControlsModule').directive('lmUrlParser', lmUrlParser);
+
+    function lmUrlParser() {
+        return {
+            scope: {
+                bindModel:'=ngModel'
+            },
+            require: 'ngModel',
+            transclude: true,
+            'templateUrl': '/app/control/input/input-control.html',
+            link: function (scope, elem, attr, ngModel) {
+                "use strict";
+                // elem.on('click', function () {
+                //     elem.addClass('lm-input-focused');
+                // });
+            }
+        };
+    }
 
 })();

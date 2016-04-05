@@ -4,5 +4,5 @@
 (function() {
     "use strict";
 
-    angular.module('ControlsModule', ['control.input-control', 'control.kinopoisk-control']);
+    angular.module('ControlsModule', ['control.input-control', 'control.parser']);
 })();

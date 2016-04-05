@@ -13,7 +13,7 @@ function lmInput() {
         },
         require: 'ngModel',
         transclude: true,
-        'templateUrl': '/app/controll/input/input-control.html',
+        'templateUrl': '/app/control/input/input-control.html',
         link: function (scope, elem, attr, ngModel) {
             "use strict";
             // elem.on('click', function () {
