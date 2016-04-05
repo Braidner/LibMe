@@ -28,7 +28,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    @HystrixCommand(groupKey = "UserService", commandKey = "Login")
+    @HystrixCommand(groupKey = "UserService", commandKey = "Login")//todo add hystrix timeout
     public User findUser(String login) {
         return userRepository.findByLogin(login);
     }

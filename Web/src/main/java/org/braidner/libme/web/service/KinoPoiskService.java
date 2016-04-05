@@ -21,12 +21,11 @@ import java.util.regex.Pattern;
  * @author KuznetsovNE/ 31.03.2016.
  */
 @Service
-public class KinoPoiskService {
+public class KinopoiskService {
     private static final Pattern KINO_POISK_ID_PATTERN = Pattern.compile("/film/([0-9]*)/");
 
     @Autowired
     private KinopoiskApi kinopoiskApi;
-
 
     public Content parse(String url) {
         Film film = new Film();
@@ -43,6 +42,8 @@ public class KinoPoiskService {
             }
             KinopiskResponse body = execute.body();
             film.setName(body.getNameRU());
+            film.setDescription(body.getDescription());
+            film.setPoster(body.getPosterURL());
         }
 
         return film;

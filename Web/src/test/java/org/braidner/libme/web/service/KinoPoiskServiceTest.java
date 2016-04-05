@@ -18,10 +18,10 @@ import static org.junit.Assert.assertTrue;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestConfig.class)
-public class KinoPoiskServiceTest {
+public class KinopoiskServiceTest {
 
     @Autowired
-    private KinoPoiskService kinoPoiskService;
+    private KinopoiskService kinopoiskService;
 
     @Before
     public void setUp() throws Exception {
@@ -35,7 +35,7 @@ public class KinoPoiskServiceTest {
 
     @Test
     public void parse() throws Exception {
-        Content content = kinoPoiskService.parse("http://www.kinopoisk.ru/film/775276/");
+        Content content = kinopoiskService.parse("http://www.kinopoisk.ru/film/775276/");
         assertTrue(content instanceof Film);
         assertTrue(content.getName().equals("Зверополис"));
     }

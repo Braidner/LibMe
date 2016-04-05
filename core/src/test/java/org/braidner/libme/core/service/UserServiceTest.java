@@ -1,24 +1,20 @@
 package org.braidner.libme.core.service;
 
-import org.braidner.libme.core.config.AppConfig;
-import org.braidner.libme.core.model.Film;
+import org.braidner.libme.core.CoreTestConfig;
 import org.braidner.libme.core.model.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author kuznetsovne/ 15.03.2016.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = AppConfig.class)
-public class UserServiceTest {
+
+public class UserServiceTest extends CoreTestConfig {
 
     @Autowired
     private UserService userService;

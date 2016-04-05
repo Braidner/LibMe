@@ -37,7 +37,7 @@ public class WebConfig implements CommandLineRunner {
     public EmbeddedServletContainerFactory servletContainer() {
         TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory();
         String port = System.getProperty("server.port");
-        factory.setPort(Integer.parseInt(port != null ? port : "8080"));
+        factory.setPort(Integer.parseInt(port != null ? port : "8081"));
         factory.setSessionTimeout(10, TimeUnit.MINUTES);
         factory.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/notfound.html")); //TODO add 404 page
         return factory;
