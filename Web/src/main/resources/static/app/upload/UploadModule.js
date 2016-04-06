@@ -9,8 +9,8 @@
     angular.module('UploadModule').controller('UploadCtrl', UploadCtrl);
     angular.module('UploadModule').controller('FastUploadCtrl', FastUploadCtrl);
 
+    RouteConfig.$inject = ['$routeProvider'];
     function RouteConfig($routeProvider) {
-        "ngInject";
         $routeProvider.when('/upload', {
             templateUrl: '/app/upload/upload.html',
             controller: 'UploadCtrl'
@@ -20,7 +20,6 @@
 
     UploadCtrl.$inject = ['$scope', 'ContentService'];
     function UploadCtrl($scope, ContentService) {
-        "ngInject";
         $scope.content = [
             {type: 'film',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
             {type: 'serial',  name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
@@ -35,7 +34,7 @@
         // });
     }
 
-
+    FastUploadCtrl.$inject = ['$scope'];
     function FastUploadCtrl($scope) {
         
     }

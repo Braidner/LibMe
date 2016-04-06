@@ -270,6 +270,17 @@ a {
   z-index: 1030;
 }
 
+.find-button {
+  height: 50px;
+  width: 100%;
+  border: none;
+  background-color: #F7CE40;
+  font-size: 18px;
+}
+.find-button:focus, .find-button:hover {
+  background-color: #f6bb42;
+}
+
 @media (max-width: 767px) {
   .content {
     width: auto;
@@ -348,9 +359,6 @@ a {
 }
 .recent.ng-leave, .recent.ng-enter.ng-enter-active {
   height: 413px;
-}
-.recent .owl-controls {
-  display: none !important;
 }
 
 .content-item {

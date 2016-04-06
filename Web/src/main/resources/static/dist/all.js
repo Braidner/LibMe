@@ -291,8 +291,8 @@
     
 })();
 /**
-    * Created by Braidner
-    */
+ * Created by Braidner
+ */
 (function () {
     'use strict';
 
@@ -301,7 +301,6 @@
 
     RecentCtrl.$inject = ['$scope'];
     function RecentCtrl($scope) {
-        "ngInject";
         $scope.content = [
             {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
             {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
@@ -314,27 +313,27 @@
         ];
     }
 
-    angular.module('RecentModule').directive('owlCarousel', function() {
+    angular.module('RecentModule').directive('owlCarousel', function () {
 
         var linker = function (scope, element, attr) {
-            
+
             var loadCarousel = function () {
                 element.owlCarousel(
                     {
-                        loop:false,
-                        nav:false,
-                        responsive:{
-                            1200:{
-                                items:6
+                        loop: false,
+                        nav: false,
+                        responsive: {
+                            1200: {
+                                items: 6
                             },
-                            992:{
-                                items:4
+                            992: {
+                                items: 4
                             },
-                            768:{
-                                items:3
+                            768: {
+                                items: 3
                             },
-                            479:{
-                                items:2
+                            479: {
+                                items: 2
                             }
                         }
                     }
@@ -365,8 +364,8 @@
     angular.module('UploadModule').controller('UploadCtrl', UploadCtrl);
     angular.module('UploadModule').controller('FastUploadCtrl', FastUploadCtrl);
 
+    RouteConfig.$inject = ['$routeProvider'];
     function RouteConfig($routeProvider) {
-        "ngInject";
         $routeProvider.when('/upload', {
             templateUrl: '/app/upload/upload.html',
             controller: 'UploadCtrl'
@@ -376,7 +375,6 @@
 
     UploadCtrl.$inject = ['$scope', 'ContentService'];
     function UploadCtrl($scope, ContentService) {
-        "ngInject";
         $scope.content = [
             {type: 'film',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
             {type: 'serial',  name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
@@ -391,7 +389,7 @@
         // });
     }
 
-
+    FastUploadCtrl.$inject = ['$scope'];
     function FastUploadCtrl($scope) {
         
     }

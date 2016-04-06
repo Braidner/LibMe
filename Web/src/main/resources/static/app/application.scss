@@ -131,6 +131,18 @@ a {
   z-index: 1030;
 }
 
+.find-button {
+  height: 50px;
+  width: 100%;
+  border: none;
+  background-color: $select-color;
+  font-size: 18px;
+
+  &:focus, &:hover {
+    background-color: #f6bb42;
+  }
+}
+
 @import "content/content";
 @import "content-card/content-card";
 @import "recent/recent";
