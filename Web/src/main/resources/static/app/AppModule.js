@@ -19,10 +19,11 @@
     ])
         .config(RouteConfig)
         .run(MonitorConfig)
+        .run(AnalyticsConfig)
         .controller("NavigationCtrl", NavigationCtrl);
 
+    MonitorConfig.$inject = ['$rootScope'];
     function MonitorConfig($rootScope) {
-        "ngInject";
         $rootScope.activeTab = "/";
         $rootScope.$on('$routeChangeStart', function (event, next) {
             //TODO add monitoring
@@ -31,18 +32,31 @@
             }
         });
     }
-    
+
+    RouteConfig.$inject = ['$routeProvider', '$locationProvider'];
     function RouteConfig($routeProvider, $locationProvider) {
-        "ngInject";
         $routeProvider.otherwise({
             redirectTo: '/'
         });
         $locationProvider.html5Mode(true);
     }
 
-    function NavigationCtrl ($scope) {
-        "ngInject";
+    AnalyticsConfig.$inject = ['$rootScope', '$location', '$window'];
+    function AnalyticsConfig($rootScope, $location, $window) {
+        $rootScope.$on('$routeChangeSuccess',
+            function () {
+                if (!$window.ga) {
+                    return;
+                }
+                $window.ga('send', 'pageview', {
+                    page: $location.path()
+                });
+            }
+        );
+    }
 
+    NavigationCtrl.$inject = ['$scope'];
+    function NavigationCtrl ($scope) {
         $scope.$on('$routeChangeStart', function (event, current) {
             var totalWidth = $('menu ul').width();
             $("menu ul li").each(function (index, el) {
