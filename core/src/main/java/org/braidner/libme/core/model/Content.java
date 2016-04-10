@@ -16,7 +16,7 @@ import org.springframework.data.annotation.Id;
 public class Content {
 
     @Id private String id;
-    private String type = getClass().getSimpleName();
+    private String type = getClass().getSimpleName().toLowerCase();
     protected String name;
     protected String poster;
     protected User owner;

@@ -82,7 +82,8 @@
             new Tab("/film", "Фильмы"),
             new Tab("/serial", "Сериалы"),
             new Tab("/anime", "Аниме"),
-            new Tab("/other", "Прочее")
+            new Tab("/other", "Прочее"),
+            new Tab("/upload", "Загрузить фильм")
         ];
         
         $scope.selectTab = selectTab;
@@ -236,6 +237,14 @@
     
 })();
 /**
+ * Created by goodl on 4/2/2016.
+ */
+(function() {
+    "use strict";
+
+    angular.module('ControlsModule', ['control.input-control', 'control.parser']);
+})();
+/**
  * Created by goodl on 3/9/2016.
  */
 (function () {
@@ -261,14 +270,6 @@
             templateUrl: '/app/item/item.html'
         };
     }
-})();
-/**
- * Created by goodl on 4/2/2016.
- */
-(function() {
-    "use strict";
-
-    angular.module('ControlsModule', ['control.input-control', 'control.parser']);
 })();
 /**
  * Created by goodl on 3/21/2016.
@@ -410,30 +411,6 @@
 
 })();
 /**
- * Created by goodl on 4/2/2016.
- */
-
-
-angular.module('control.input-control', [])
-    .directive('lmInput', lmInput);
-
-function lmInput() {
-    return {
-        scope: {
-            bindModel:'=ngModel'
-        },
-        require: 'ngModel',
-        transclude: true,
-        'templateUrl': '/app/control/input/input-control.html',
-        link: function (scope, elem, attr, ngModel) {
-            "use strict";
-            // elem.on('click', function () {
-            //     elem.addClass('lm-input-focused');
-            // });
-        }
-    };
-}
-/**
  * Created by KuznetsovNE on 04.04.2016.
  */
 (function () {
@@ -459,3 +436,27 @@ function lmInput() {
     }
 
 })();
+/**
+ * Created by goodl on 4/2/2016.
+ */
+
+
+angular.module('control.input-control', [])
+    .directive('lmInput', lmInput);
+
+function lmInput() {
+    return {
+        scope: {
+            bindModel:'=ngModel'
+        },
+        require: 'ngModel',
+        transclude: true,
+        'templateUrl': '/app/control/input/input-control.html',
+        link: function (scope, elem, attr, ngModel) {
+            "use strict";
+            // elem.on('click', function () {
+            //     elem.addClass('lm-input-focused');
+            // });
+        }
+    };
+}

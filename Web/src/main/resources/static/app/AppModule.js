@@ -82,7 +82,8 @@
             new Tab("/film", "Фильмы"),
             new Tab("/serial", "Сериалы"),
             new Tab("/anime", "Аниме"),
-            new Tab("/other", "Прочее")
+            new Tab("/other", "Прочее"),
+            new Tab("/upload", "Загрузить фильм")
         ];
         
         $scope.selectTab = selectTab;

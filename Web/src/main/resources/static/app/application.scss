@@ -27,10 +27,12 @@ nav {
   justify-content: space-between;
   //background: $nav-background;
   height: $nav-height;
-  @include box-shadow(0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23));
+  @include box-shadow(0 1px 6px rgba(0, 0, 0, 0.16), 0 2px 6px rgba(0, 0, 0, 0.23));
 
   #logo {
-    line-height: 50px;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .active-menu {
@@ -63,6 +65,7 @@ nav {
 
         a {
           padding: 0 28px 0 28px;
+          font-size: 16px;
           color: $font-color;
           display: block;
           width: 100%;
@@ -92,6 +95,13 @@ nav {
         }
       }
     }
+  }
+
+  .search, .profile {
+    height: 80px;
+    padding-top: 29px;
+    padding-bottom: 29px;
+    rotation: 180deg;
   }
 
   .settings {

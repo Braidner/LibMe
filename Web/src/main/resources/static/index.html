@@ -20,21 +20,23 @@
 <body ng-app="App">
 
 <nav class="fixed-top" ng-controller="NavigationCtrl">
-    <div id="logo">
-        <a href="/"><img src="/lib/image/logo.svg"></a>
-    </div>
-    <menu>
-        <ul>
-            <li ng-click="selectTab(tab)" ng-class="{'active-menu': activeTab == tab.id}" ng-repeat="tab in tabs">
-                <a ng-href="{{tab.id}}">{{tab.name}}</a>
-            </li>
-            <div class="menu-indicator"></div>
-        </ul>
-    </menu>
+    <div class="container content center-block">
+        <div class="row">
+            <div id="logo" class="col-md-2">
+                <a href="/"><img src="/lib/image/logo.svg"></a>
+            </div>
+            <menu class="col-md-8">
+                <ul>
+                    <li ng-click="selectTab(tab)" ng-class="{'active-menu': activeTab == tab.id}" ng-repeat="tab in tabs">
+                        <a ng-href="{{tab.id}}">{{tab.name}}</a>
+                    </li>
+                    <div class="menu-indicator"></div>
+                </ul>
+            </menu>
 
-    <div class="settings">
-        <div ng-class="{'active-menu': activeTab === '/profile'}"><a ng-href="/profile"><i class="fa fa-user"></i></a></div>
-        <div><a ng-href="/upload"><i class="fa fa-search"></i></a></div>
+            <div class="search col-md-1"><a ng-href="/upload"><i class="fa fa-search"></i></a></div>
+            <div class="profile col-md-1" ng-class="{'active-menu': activeTab === '/profile'}"><a ng-href="/profile"><i class="fa fa-user"></i></a></div>
+        </div>
     </div>
 </nav>
 
