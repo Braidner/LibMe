@@ -160,19 +160,16 @@
 
     AllContentCtrl.$inject = ['$scope', 'ContentService'];
     function AllContentCtrl($scope, ContentService) {
-        "ngInject";
         $scope.content = ContentService.findContent();
     }
 
     FilmContentCtrl.$inject = ['$scope', 'ContentService'];
     function FilmContentCtrl($scope, ContentService) {
-        "ngInject";
         $scope.content = ContentService.findContent(null, 'Film');
     }
 
     SerialContentCtrl.$inject = ['$scope', 'ContentService'];
     function SerialContentCtrl($scope, ContentService) {
-        "ngInject";
         $scope.content = ContentService.findContent(null, 'Serial');
     }
 })();
