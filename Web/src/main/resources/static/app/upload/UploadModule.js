@@ -7,7 +7,7 @@
     angular.module('UploadModule', ['ngResource']);
     angular.module('UploadModule').config(RouteConfig);
     angular.module('UploadModule').controller('UploadCtrl', UploadCtrl);
-    angular.module('UploadModule').controller('FastUploadCtrl', FastUploadCtrl);
+    angular.module('UploadModule').factory('UploadData', UploadData);
 
     RouteConfig.$inject = ['$routeProvider'];
     function RouteConfig($routeProvider) {
@@ -18,25 +18,30 @@
     }
     
 
-    UploadCtrl.$inject = ['$scope', 'ContentService'];
-    function UploadCtrl($scope, ContentService) {
-        $scope.content = [
-            {type: 'film',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'serial',  name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {type: 'serial', name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {type: 'film',  name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {type: 'film',  name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'},
-            {type: 'serial',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
-        ];
-
-        // angular.forEach($scope.content, function (content) {
-        //     ContentService.createContent(content);
-        // });
+    UploadCtrl.$inject = ['$scope', 'UploadData'];
+    function UploadCtrl($scope, UploadData) {
+        var content = UploadData.get();
+        console.log(content);
+        UploadData.set(null);
+        console.log(content);
+        if (content) {
+            $scope.content = content;
+        }
     }
 
-    FastUploadCtrl.$inject = ['$scope'];
-    function FastUploadCtrl($scope) {
-        
+    function UploadData() {
+        var uploadData = {};
+        function set(data) {
+            uploadData = data;
+        }
+        function get() {
+            return uploadData;
+        }
+
+        return {
+            set: set,
+            get: get
+        };
     }
 
 })();

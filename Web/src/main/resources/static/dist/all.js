@@ -242,7 +242,11 @@
 (function() {
     "use strict";
 
-    angular.module('ControlsModule', ['control.input-control', 'control.parser']);
+    angular.module('ControlsModule', [
+        'control.input-control', 
+        'control.parser',
+        'control.input-chunk'
+    ]);
 })();
 /**
  * Created by goodl on 3/9/2016.
@@ -377,7 +381,7 @@
     angular.module('UploadModule', ['ngResource']);
     angular.module('UploadModule').config(RouteConfig);
     angular.module('UploadModule').controller('UploadCtrl', UploadCtrl);
-    angular.module('UploadModule').controller('FastUploadCtrl', FastUploadCtrl);
+    angular.module('UploadModule').factory('UploadData', UploadData);
 
     RouteConfig.$inject = ['$routeProvider'];
     function RouteConfig($routeProvider) {
@@ -388,50 +392,29 @@
     }
     
 
-    UploadCtrl.$inject = ['$scope', 'ContentService'];
-    function UploadCtrl($scope, ContentService) {
-        $scope.content = [
-            {type: 'film',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {type: 'serial',  name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {type: 'serial', name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {type: 'film',  name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {type: 'film',  name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'},
-            {type: 'serial',  name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'}
-        ];
-
-        // angular.forEach($scope.content, function (content) {
-        //     ContentService.createContent(content);
-        // });
+    UploadCtrl.$inject = ['$scope', 'UploadData'];
+    function UploadCtrl($scope, UploadData) {
+        var content = UploadData.get();
+        console.log(content);
+        UploadData.set(null);
+        console.log(content);
+        if (content) {
+            $scope.content = content;
+        }
     }
 
-    FastUploadCtrl.$inject = ['$scope'];
-    function FastUploadCtrl($scope) {
-        
-    }
+    function UploadData() {
+        var uploadData = {};
+        function set(data) {
+            uploadData = data;
+        }
+        function get() {
+            return uploadData;
+        }
 
-})();
-/**
- * Created by KuznetsovNE on 04.04.2016.
- */
-(function () {
-    angular.module('control.parser', []);
-
-    angular.module('ControlsModule').directive('lmUrlParser', lmUrlParser);
-
-    function lmUrlParser() {
         return {
-            scope: {
-                bindModel:'=ngModel'
-            },
-            require: 'ngModel',
-            transclude: true,
-            'templateUrl': '/app/control/input/input-control.html',
-            link: function (scope, elem, attr, ngModel) {
-                "use strict";
-                // elem.on('click', function () {
-                //     elem.addClass('lm-input-focused');
-                // });
-            }
+            set: set,
+            get: get
         };
     }
 
@@ -460,3 +443,56 @@ function lmInput() {
         }
     };
 }
+(function () {
+    angular.module('control.input-chunk', []);
+    angular.module('control.input-chunk')
+        .directive('lmInputChunk', inputChunk);
+    
+    
+    function inputChunk() {
+        return {
+            scope: {
+                bindModel:'=ngModel'
+            },
+            require: 'ngModel',
+            // replace: true,
+            transclude: true,
+            'templateUrl': '/app/control/input-chunk/input-chunk.html',
+            link: function (scope, elem, attr, ngModel) {
+                "use strict";
+            }
+        };
+    }
+})();
+/**
+ * Created by KuznetsovNE on 04.04.2016.
+ */
+(function () {
+    angular.module('control.parser', []);
+
+    angular.module('ControlsModule').directive('lmUrlParser', lmUrlParser);
+
+    lmUrlParser.$inject = ['$location', '$http', 'UploadData'];
+    function lmUrlParser($location, $http, UploadData) {
+        return {
+            scope: {
+                bindModel:'=ngModel'
+            },
+            require: 'ngModel',
+            // replace: true,
+            transclude: true,
+            'templateUrl': '/app/control/url-parser-control/url-parser-control.html',
+            link: function (scope, elem, attr, ngModel) {
+                "use strict";
+                elem.find('.button').on('click', function () {
+                    $http.get('/rest/kinopoisk', {params: {url: scope.bindModel}}).then(function (responce) {
+                        responce.data.url = scope.bindModel;
+                        UploadData.set(responce.data);
+                        $location.path('/upload');
+                    });
+                });
+            }
+        };
+    }
+
+})();

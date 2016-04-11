@@ -16,6 +16,8 @@ import retrofit2.http.Query;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author KuznetsovNE/ 31.03.2016.
@@ -44,6 +46,10 @@ public class KinopoiskService {
             film.setName(body.getNameRU());
             film.setDescription(body.getDescription());
             film.setPoster(body.getPosterURL());
+            film.setKinopoiskId(body.getFilmID());
+            film.setYear(body.getYear());
+            film.setGenres(Stream.of(body.getGenre().split(",")).collect(Collectors.toList()));
+            film.setCountries(Stream.of(body.getCountry().split(",")).collect(Collectors.toList()));
         }
 
         return film;

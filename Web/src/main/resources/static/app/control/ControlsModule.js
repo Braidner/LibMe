@@ -4,5 +4,9 @@
 (function() {
     "use strict";
 
-    angular.module('ControlsModule', ['control.input-control', 'control.parser']);
+    angular.module('ControlsModule', [
+        'control.input-control', 
+        'control.parser',
+        'control.input-chunk'
+    ]);
 })();

@@ -1,14 +1,9 @@
 <div class="container content upload-container">
-    <h2 class="text-center">Добавить описание к фильму</h2>
-    <h3 class="text-center">Укажите ссыдку на фильм, который вы <br> хотите загрузить и ваши поля автоматически заполнятся <br> или сделайте это сами!</h3>
-    <div class="row">
-        <lm-input class="col-md-offset-2 col-md-8" ng-model="genre">Добавить ссылку на кинопоиск<span class="yellow">*</span></lm-input>
-    </div>
     <div class="row">
         <!--<div class="input-name col-md-offset-2 col-md-4"><input name="name" placeholder="Название фильма"></div>-->
         <!--<div class="input-genre col-md-4"><input name="genre" placeholder="Жанр"></div>-->
-        <lm-input class="col-md-offset-2 col-md-4" ng-model="name">Название фильма<span class="yellow">*</span></lm-input>
-        <lm-input class="col-md-4" ng-model="genre">Жанр<span class="yellow">*</span></lm-input>
+        <lm-input class="col-md-offset-2 col-md-4" ng-model="content.name">Название фильма<span class="yellow">*</span></lm-input>
+        <lm-input-chunk class="col-md-4" ng-model="content.genres">Жанр<span class="yellow">*</span></lm-input-chunk>
     </div>
 
     <div class="row">
@@ -26,8 +21,8 @@
     </div>
 
     <div class="row">
-        <lm-input class="col-md-offset-2 col-md-4" ng-model="genre">Год выпуска<span class="yellow">*</span></lm-input>
-        <lm-input class="col-md-4" ng-model="genre">Страна производитель<span class="yellow">*</span></lm-input>
+        <lm-input class="col-md-offset-2 col-md-4" ng-model="content.year">Год выпуска<span class="yellow">*</span></lm-input>
+        <lm-input-chunk class="col-md-4" ng-model="content.countries">Страна производитель<span class="yellow">*</span></lm-input-chunk>
     </div>
 
     <div class="row">

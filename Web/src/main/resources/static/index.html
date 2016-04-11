@@ -34,13 +34,13 @@
                 </ul>
             </menu>
 
-            <div class="search col-md-1"><a ng-href="/upload"><i class="fa fa-search"></i></a></div>
-            <div class="profile col-md-1" ng-class="{'active-menu': activeTab === '/profile'}"><a ng-href="/profile"><i class="fa fa-user"></i></a></div>
+            <div class="search col-md-1"><a ng-href="/upload"><img src="lib/image/search.svg"></a></div>
+            <div class="profile col-md-1" ng-class="{'active-menu': activeTab === '/profile'}"><a ng-href="/profile"><img src="lib/image/person-outline.svg"></a></div>
         </div>
     </div>
 </nav>
 
-<div class="fast-upload" ng-if="activeTab === '/'" ng-include="'app/upload/fast-upload.html'" ng-controller="FastUploadCtrl"></div>
+<div class="fast-upload" ng-if="activeTab === '/' || activeTab === '/upload'" ng-include="'app/upload/fast-upload.html'"></div>
 <div class="recent" ng-if="activeTab === '/'" ng-include="'app/recent/recent.html'" ng-controller="RecentCtrl"></div>
 
 <ng-view>Loading angular module</ng-view>
