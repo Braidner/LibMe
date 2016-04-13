@@ -252,6 +252,9 @@ nav .search, nav .profile {
   padding-bottom: 29px;
   rotation: 180deg;
 }
+nav .search a, nav .profile a {
+  float: right;
+}
 nav .search img, nav .profile img {
   height: 22px;
 }
