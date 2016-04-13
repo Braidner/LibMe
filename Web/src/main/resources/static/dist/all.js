@@ -307,69 +307,6 @@
     
 })();
 /**
- * Created by Braidner
- */
-(function () {
-    'use strict';
-
-    angular.module('RecentModule', [])
-        .controller("RecentCtrl", RecentCtrl);
-
-    RecentCtrl.$inject = ['$scope'];
-    function RecentCtrl($scope) {
-        $scope.content = [
-            {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'}
-        ];
-    }
-
-    angular.module('RecentModule').directive('owlCarousel', function () {
-
-        var linker = function (scope, element, attr) {
-
-            var loadCarousel = function () {
-                element.owlCarousel(
-                    {
-                        loop: false,
-                        nav: false,
-                        responsive: {
-                            1200: {
-                                items: 6
-                            },
-                            992: {
-                                items: 4
-                            },
-                            768: {
-                                items: 3
-                            },
-                            479: {
-                                items: 2
-                            }
-                        }
-                    }
-                );
-            };
-
-            scope.$watchCollection(attr.owlCarousel, function () {
-                loadCarousel();
-            });
-
-        };
-
-        return {
-            restrict: "A",
-            link: linker
-        };
-
-    });
-})();
-/**
  * Created by Braidner on 06/03/2016.
  */
 (function () {
@@ -415,6 +352,69 @@
         };
     }
 
+})();
+/**
+ * Created by Braidner
+ */
+(function () {
+    'use strict';
+
+    angular.module('RecentModule', [])
+        .controller("RecentCtrl", RecentCtrl);
+
+    RecentCtrl.$inject = ['$scope'];
+    function RecentCtrl($scope) {
+        $scope.content = [
+            {name: 'Zootopia', poster: 'http://www.kinopoisk.ru/images/film_big/775276.jpg', id: 0},
+            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg', id: 0},
+            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg', id: 0},
+            {name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg', id: 0},
+            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg', id: 0},
+            {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg', id: 0},
+            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg', id: 0},
+            {name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg', id: 0}
+        ];
+    }
+
+    angular.module('RecentModule').directive('owlCarousel', function () {
+
+        var linker = function (scope, element, attr) {
+
+            var loadCarousel = function () {
+                element.owlCarousel(
+                    {
+                        loop: false,
+                        nav: false,
+                        responsive: {
+                            1200: {
+                                items: 6
+                            },
+                            992: {
+                                items: 4
+                            },
+                            768: {
+                                items: 3
+                            },
+                            479: {
+                                items: 2
+                            }
+                        }
+                    }
+                );
+            };
+
+            scope.$watchCollection(attr.owlCarousel, function () {
+                loadCarousel();
+            });
+
+        };
+
+        return {
+            restrict: "A",
+            link: linker
+        };
+
+    });
 })();
 /**
  * Created by goodl on 4/2/2016.
