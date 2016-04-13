@@ -203,6 +203,18 @@
 })();
 
 /**
+ * Created by goodl on 4/2/2016.
+ */
+(function() {
+    "use strict";
+
+    angular.module('ControlsModule', [
+        'control.input-control', 
+        'control.parser',
+        'control.input-chunk'
+    ]);
+})();
+/**
  * Created by goodl on 3/13/2016.
  */
 (function () {
@@ -232,18 +244,6 @@
         "ngInject";
     }
     
-})();
-/**
- * Created by goodl on 4/2/2016.
- */
-(function() {
-    "use strict";
-
-    angular.module('ControlsModule', [
-        'control.input-control', 
-        'control.parser',
-        'control.input-chunk'
-    ]);
 })();
 /**
  * Created by goodl on 3/9/2016.
@@ -318,14 +318,14 @@
     RecentCtrl.$inject = ['$scope'];
     function RecentCtrl($scope) {
         $scope.content = [
-            {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg'},
-            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg'},
-            {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg'},
-            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg'},
-            {name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg'}
+            {name: 'Zootopia', poster: 'http://www.kinopoisk.ru/images/film_big/775276.jpg', id: 0, type: 'film'},
+            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg', id: 0, type: 'film'},
+            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg', id: 0, type: 'film'},
+            {name: 'The flash', poster: 'http://www.kinopoisk.ru/images/film_big/817506.jpg', id: 0, type: 'film'},
+            {name: 'The Justice League Part One', poster: 'http://www.kinopoisk.ru/images/film_big/424994.jpg', id: 0, type: 'film'},
+            {name: 'Frozen', poster: 'http://www.kinopoisk.ru/images/film_big/493208.jpg', id: 0, type: 'film'},
+            {name: 'Batman v Superman: Dawn of Justice', poster: 'http://www.kinopoisk.ru/images/film_big/770631.jpg', id: 0, type: 'film'},
+            {name: 'Untitled Spider-Man Reboot', poster: 'http://www.kinopoisk.ru/images/film_big/690593.jpg', id: 0, type: 'film'}
         ];
     }
 
